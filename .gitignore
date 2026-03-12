@@ -1,0 +1,20 @@
+# Environnement virtuel (Trop lourd)
+venv/
+ENV/
+.venv/
+
+# Secrets et configuration (Sécurité)
+.env
+
+# Python (Fichiers temporaires)
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de données locale (Pour éviter les conflits)
+*.db
+
+# Dossiers d'outils (VS Code, Mac, Windows)
+.vscode/
+.DS_Store
+Thumbs.db
