@@ -1,0 +1,22 @@
+# Framework principal
+streamlit
+
+# Manipulation de données et calculs
+pandas
+numpy
+
+# Cartographie et géolocalisation
+folium
+streamlit-folium
+
+# Visualisation de données (Graphiques)
+plotly
+
+# Sécurité et Authentification
+bcrypt
+
+# Gestion des variables d'environnement (.env)
+python-dotenv
+
+# Base de données (déjà inclus dans Python, mais utile pour des outils tiers)
+# sqlite3 est natif, pas besoin de le lister ici
