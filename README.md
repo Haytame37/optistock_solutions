@@ -13,9 +13,9 @@ Encadré par : **Pr. Hamza Touil**
 
 | Nom               | Rôle                        |
 | ----------------- | --------------------------- |
-| Rafiki Najat      | Développement & Analyse IoT |
-| Atmane Salah      | Back-end & Scoring          |
-| ElAtraoui Haytame | Front-end & Cartographie    |
+| Rafiki Najat      | Module 1&2 |
+| Atmane Salah      | Module 1&2          |
+| ElAtraoui Haytame | Module 1&2    |
 
 ---
 
@@ -164,16 +164,6 @@ streamlit run app.py
 L'application s'ouvre automatiquement sur `http://localhost:8501`
 
 ---
-
-## 🔐 Comptes de démonstration
-
-| Rôle         | Email              | Mot de passe |
-| ------------ | ------------------ | ------------ |
-| Admin        | admin@optistock.ma | admin123     |
-| Chercheur    | chercheur@test.ma  | test123      |
-| Propriétaire | proprio@test.ma    | test123      |
-
-> ⚠️ Ces comptes sont créés automatiquement par `seed_data.py` au premier lancement.
 
 ---
 
