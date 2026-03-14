@@ -1,54 +1,48 @@
 import streamlit as st
 import pandas as pd
-import folium
-from streamlit_folium import st_folium
-import sys
-import os
+from core.logistique import analyser_demandes_et_localiser
+# Importation du nouveau composant visuel
+from core.carte import afficher_carte_barycentre
 
-# Ajout du chemin racine pour éviter le ModuleNotFoundError
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+def afficher_module_localisation():
+    st.header("📦 Optimisation de l'Emplacement du Stockage")
+    st.markdown("Chargez un fichier CSV contenant les colonnes : `ville`, `lat`, `lon`, `demande`.")
 
-# Importations propres depuis le module core
-from core.logistique import calculer_centre_gravite
+    fichier_upload = st.file_uploader("Fichier des points de demande", type=["csv"])
 
-st.title("📍 Module 2 : Optimisation d'Implantation")
-
-# 1. Entrée des données : Importation CSV des clients
-st.subheader("1. Importation des points de livraison")
-file_clients = st.file_uploader("Fichier des clients (CSV)", type="csv")
-
-if file_clients:
-    df_clients = pd.read_csv(file_clients)
-    
-    # 2. Calcul du point idéal
-    # On transforme le DataFrame en liste de dictionnaires pour notre fonction
-    points = df_clients.to_dict('records')
-    lat_opt, lon_opt = calculer_centre_gravite(points)
-    
-    if lat_opt:
-        st.success(f"Point optimal identifié : {lat_opt}, {lon_opt}")
-        
-        # 3. Création de la Carte Interactive
-        m = folium.Map(location=[lat_opt, lon_opt], zoom_start=6)
-        
-        # Ajouter les clients sur la carte
-        for _, row in df_clients.iterrows():
-            folium.CircleMarker(
-                location=[row['lat'], row['lon']],
-                radius=row['volume']/100, # La taille du cercle dépend du volume
-                color='blue',
-                fill=True,
-                popup=f"{row['ville']} (Vol: {row['volume']})"
-            ).add_to(m)
+    if fichier_upload is not None:
+        try:
+            df = pd.read_csv(fichier_upload)
+            colonnes_requises = {'ville', 'lat', 'lon', 'demande'} 
             
-        # Ajouter le point IDÉAL (L'étoile rouge)
-        folium.Marker(
-            [lat_opt, lon_opt],
-            popup="POINT OPTIMAL D'IMPLANTATION",
-            icon=folium.Icon(color='red', icon='star')
-        ).add_to(m)
-        
-        # Affichage
-        st_folium(m, width=700, height=500)
-        
-        st.info("💡 L'étoile rouge représente le barycentre logistique. C'est ici que les coûts de transport globaux sont minimisés.")
+            if colonnes_requises.issubset(df.columns):
+                st.success("Données chargées avec succès !")
+                
+                # Exécution du calcul métier (Back-end)
+                resultats = analyser_demandes_et_localiser(df)
+                
+                # Affichage des KPIs
+                col1, col2 = st.columns(2)
+                col1.metric("📍 Latitude Optimale", f"{resultats['coordonnees_optimales'][0]:.5f}")
+                col2.metric("📍 Longitude Optimale", f"{resultats['coordonnees_optimales'][1]:.5f}")
+                st.metric("Coût de transport global estimé (Unité x Km)", f"{resultats['cout_transport_global']:,.2f}")
+                
+                st.divider()
+                
+                # --- NOUVEAU : Affichage de la carte ---
+                st.subheader("🗺️ Visualisation Géographique")
+                afficher_carte_barycentre(resultats['details_df'], resultats['coordonnees_optimales'])
+                
+                st.divider()
+
+                # Affichage du tableau détaillé
+                st.subheader("📊 Détails par point de destination")
+                st.dataframe(resultats['details_df'])
+                
+            else:
+                st.error(f"Format invalide. Colonnes manquantes. Attendu : {colonnes_requises}")
+        except Exception as e:
+            st.error(f"Une erreur s'est produite lors de l'analyse : {e}")
+
+if __name__ == "__main__":
+    afficher_module_localisation()

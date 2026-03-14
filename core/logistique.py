@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 def traiter_recommandation_csv(path_entrepots, path_iot, path_trajets, poids_client):
     # 1. Importation des données
     df_entrepots = pd.read_csv(path_entrepots)
@@ -60,3 +60,68 @@ def calculer_centre_gravite(points_livraison):
     lon_optimal = sum(p['lon'] * p['volume'] for p in points_livraison) / total_volume
     
     return round(lat_optimal, 4), round(lon_optimal, 4)
+def calculer_distances_haversine_vectorise(lat1, lon1, lat2, lon2):
+    """
+    Calcule la distance Haversine de manière vectorisée avec NumPy.
+    Idéal pour traiter des DataFrames complets sans utiliser de boucles.
+    
+    Arguments:
+    lat1, lon1 : Séries Pandas ou tableaux NumPy (ex: Coordonnées des livraisons)
+    lat2, lon2 : Séries Pandas ou tableaux NumPy (ex: Coordonnées de l'entrepôt)
+
+    Retourne:
+    la distance entre les deux points
+    """
+    # Rayon moyen de la Terre en kilomètres
+    R = 6371.0
+
+    # Conversion de toutes les coordonnées de degrés en radians en une seule passe
+    lat1_rad = np.radians(lat1)
+    lon1_rad = np.radians(lon1)
+    lat2_rad = np.radians(lat2)
+    lon2_rad = np.radians(lon2)
+
+    # Calcul des différences
+    dlat = lat2_rad - lat1_rad
+    dlon = lon2_rad - lon1_rad
+
+    # Application de la formule vectorisée
+    a = np.sin(dlat / 2.0)**2 + np.cos(lat1_rad) * np.cos(lat2_rad) * np.sin(dlon / 2.0)**2
+    c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
+
+    # Retourne les distances
+    return R * c
+
+
+def analyser_demandes_et_localiser(df_demandes):
+    """
+    Calcule le centre de stockage optimal et évalue les distances.
+    Attends un DataFrame avec les colonnes: ['id', 'nom', 'lat', 'lon', 'demande']
+    """
+    # 1. Calcul du Centre de Gravité (Barycentre pondéré)
+    poids_total = df_demandes['demande'].sum()
+    
+    if poids_total == 0:
+        raise ValueError("La demande totale ne peut pas être nulle.")
+
+    lat_centre = (df_demandes['lat'] * df_demandes['demande']).sum() / poids_total
+    lon_centre = (df_demandes['lon'] * df_demandes['demande']).sum() / poids_total
+
+    # 2. Calcul des distances vectorisées vers le centre optimal
+    # Utilisation de la fonction exigée sans la redéfinir
+    df_demandes['distance_au_centre_km'] = calculer_distances_haversine_vectorise(
+        df_demandes['lat'].values,
+        df_demandes['lon'].values,
+        np.full(len(df_demandes), lat_centre), # Répète la latitude du centre
+        np.full(len(df_demandes), lon_centre)  # Répète la longitude du centre
+    )
+
+    # 3. Calcul du "Moment de transport" (Indicateur de coût : Demande * Distance)
+    df_demandes['cout_transport_estime'] = df_demandes['demande'] * df_demandes['distance_au_centre_km']
+
+    return {
+        "coordonnees_optimales": (lat_centre, lon_centre),
+        "distance_moyenne_km": df_demandes['distance_au_centre_km'].mean(),
+        "cout_transport_global": df_demandes['cout_transport_estime'].sum(),
+        "details_df": df_demandes
+    }
