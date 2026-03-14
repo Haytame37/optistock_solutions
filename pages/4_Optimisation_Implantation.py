@@ -25,7 +25,7 @@ def afficher_module_localisation():
                 col1, col2 = st.columns(2)
                 col1.metric("📍 Latitude Optimale", f"{resultats['coordonnees_optimales'][0]:.5f}")
                 col2.metric("📍 Longitude Optimale", f"{resultats['coordonnees_optimales'][1]:.5f}")
-                st.metric("Coût de transport global estimé (Unité x Km)", f"{resultats['cout_transport_global']:,.2f}")
+                #st.metric("Coût de transport global estimé (Unité x Km)", f"{resultats['cout_transport_global']:,.2f}")
                 
                 st.divider()
                 

@@ -117,11 +117,11 @@ def analyser_demandes_et_localiser(df_demandes):
     )
 
     # 3. Calcul du "Moment de transport" (Indicateur de coût : Demande * Distance)
-    df_demandes['cout_transport_estime'] = df_demandes['demande'] * df_demandes['distance_au_centre_km']
+    #df_demandes['cout_transport_estime'] = df_demandes['demande'] * df_demandes['distance_au_centre_km']
 
     return {
         "coordonnees_optimales": (lat_centre, lon_centre),
         "distance_moyenne_km": df_demandes['distance_au_centre_km'].mean(),
-        "cout_transport_global": df_demandes['cout_transport_estime'].sum(),
+        #"cout_transport_global": df_demandes['cout_transport_estime'].sum(),
         "details_df": df_demandes
     }
