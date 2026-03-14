@@ -96,7 +96,7 @@ def calculer_distances_haversine_vectorise(lat1, lon1, lat2, lon2):
 def analyser_demandes_et_localiser(df_demandes):
     """
     Calcule le centre de stockage optimal et évalue les distances.
-    Attends un DataFrame avec les colonnes: ['id', 'nom', 'lat', 'lon', 'demande']
+    Attends un DataFrame avec les colonnes: ['nom', 'lat', 'lon', 'demande']
     """
     # 1. Calcul du Centre de Gravité (Barycentre pondéré)
     poids_total = df_demandes['demande'].sum()
