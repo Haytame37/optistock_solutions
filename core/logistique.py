@@ -123,5 +123,30 @@ def calculer_centre_gravite(points_livraison):
     # Formule : Σ (Coordonnée * Volume) / Σ Volume
     lat_optimal = sum(p['lat'] * p['volume'] for p in points_livraison) / total_volume
     lon_optimal = sum(p['lon'] * p['volume'] for p in points_livraison) / total_volume
-    
     return round(lat_optimal, 4), round(lon_optimal, 4)
+
+def haversine(lat1, lon1, lat2, lon2):
+    """Calcule la distance Haversine entre deux points (en km)."""
+    R = 6371.0
+    lat1_rad, lon1_rad = np.radians(lat1), np.radians(lon1)
+    lat2_rad, lon2_rad = np.radians(lat2), np.radians(lon2)
+    
+    dlat = lat2_rad - lat1_rad
+    dlon = lon2_rad - lon1_rad
+    
+    a = np.sin(dlat / 2.0)**2 + np.cos(lat1_rad) * np.cos(lat2_rad) * np.sin(dlon / 2.0)**2
+    c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
+    
+    return R * c
+
+def calculer_score_mixte(distance, temp, hum, poids):
+    """Calcule un score pondéré combinant distance, température et humidité."""
+    # Convertit la distance en score (plus la distance est faible, plus le score est élevé. Max 100)
+    score_dist = max(0, 100 - (distance * 0.1))
+    
+    # On calcule la moyenne pondérée
+    score = (score_dist * poids.get('dist', 0.5)) + \
+            (temp * poids.get('temp', 0.3)) + \
+            (hum * poids.get('hum', 0.2))
+            
+    return round(score, 2)
