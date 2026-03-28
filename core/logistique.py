@@ -35,34 +35,71 @@ def calculer_distances_haversine_vectorise(lat1, lon1, lat2, lon2):
 
 def analyser_demandes_et_localiser(df_demandes):
     """
-    Calcule le centre de stockage optimal et évalue les distances.
-    Attends un DataFrame avec les colonnes: ['nom', 'lat', 'lon', 'demande']
+    Calcule le centre de stockage optimal en minimisant le coût total de transport
+    via le modèle de gravité itératif (Network Optimization Model).
+    Attends un DataFrame avec les colonnes: ['ville', 'lat', 'lon', 'demande', 'tarif_transport']
     """
-    # 1. Calcul du Centre de Gravité (Barycentre pondéré)
-    poids_total = df_demandes['demande'].sum()
+    if 'tarif_transport' not in df_demandes.columns:
+        raise ValueError("La colonne 'tarif_transport' est requise pour le modèle itératif.")
+        
+    lats = df_demandes['lat'].values
+    lons = df_demandes['lon'].values
+    demandes = df_demandes['demande'].values
+    tarifs = df_demandes['tarif_transport'].values
     
-    if poids_total == 0:
+    # 1. Initialisation : Barycentre pondéré simple
+    poids_demande = demandes.sum()
+    if poids_demande == 0:
         raise ValueError("La demande totale ne peut pas être nulle.")
-
-    lat_centre = (df_demandes['lat'] * df_demandes['demande']).sum() / poids_total
-    lon_centre = (df_demandes['lon'] * df_demandes['demande']).sum() / poids_total
-
-    # 2. Calcul des distances vectorisées vers le centre optimal
-    # Utilisation de la fonction exigée sans la redéfinir
-    df_demandes['distance_au_centre_km'] = calculer_distances_haversine_vectorise(
-        df_demandes['lat'].values,
-        df_demandes['lon'].values,
-        np.full(len(df_demandes), lat_centre), # Répète la latitude du centre
-        np.full(len(df_demandes), lon_centre)  # Répète la longitude du centre
+        
+    x_current = (lons * demandes).sum() / poids_demande
+    y_current = (lats * demandes).sum() / poids_demande
+    
+    # 2. Modèle de Gravité Itératif
+    tolerance = 1e-6
+    max_iter = 100
+    
+    for _ in range(max_iter):
+        x_prev, y_prev = x_current, y_current
+        
+        # Calculer les distances du point courant vers toutes les cibles
+        distances = calculer_distances_haversine_vectorise(
+            lats, lons, 
+            np.full(len(lats), y_current), np.full(len(lons), x_current)
+        )
+        
+        # Gérer la division par zéro (epsilon)
+        distances = np.where(distances == 0, 1e-6, distances)
+        
+        # Calcul des poids ajustés: W_n = (D_n * F_n) / d_n  (Equation académique)
+        w_n = (demandes * tarifs) / distances
+        w_total = w_n.sum()
+        
+        if w_total == 0:
+            break
+            
+        # Nouvelles coordonnées : moyennes pondérées
+        x_current = (w_n * lons).sum() / w_total
+        y_current = (w_n * lats).sum() / w_total
+        
+        # Test de convergence
+        if abs(x_current - x_prev) < tolerance and abs(y_current - y_prev) < tolerance:
+            break
+            
+    lat_optimal, lon_optimal = y_current, x_current
+    
+    # 3. Calculs finaux pour le reporting
+    distances_finales = calculer_distances_haversine_vectorise(
+        lats, lons, 
+        np.full(len(lats), lat_optimal), np.full(len(lons), lon_optimal)
     )
-
-    # 3. Calcul du "Moment de transport" (Indicateur de coût : Demande * Distance)
-    #df_demandes['cout_transport_estime'] = df_demandes['demande'] * df_demandes['distance_au_centre_km']
+    df_demandes['distance_au_centre_km'] = distances_finales
+    df_demandes['cout_transport_total'] = distances_finales * demandes * tarifs
 
     return {
-        "coordonnees_optimales": (lat_centre, lon_centre),
-        "distance_moyenne_km": df_demandes['distance_au_centre_km'].mean(),
-        #"cout_transport_global": df_demandes['cout_transport_estime'].sum(),
+        "coordonnees_optimales": (lat_optimal, lon_optimal),
+        "distance_moyenne_km": distances_finales.mean(),
+        "cout_transport_global": df_demandes['cout_transport_total'].sum(),
         "details_df": df_demandes
     }
 def traiter_recommandation_csv(path_entrepots, path_iot, path_trajets, poids_client):

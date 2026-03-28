@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from core.logistique import haversine, calculer_score_mixte, analyser_demandes_et_localiser
-from core.carte import afficher_carte_barycentre
+from core.carte import afficher_carte_barycentre, afficher_carte_recommandation
 
 @st.cache_data
 def load_csv(file):
@@ -13,10 +13,33 @@ def load_csv(file):
 def run_analyse(df):
     return analyser_demandes_et_localiser(df)
 
-def handle_upload(label, required_columns, col=st, key=None):
-    """Gère l'upload, affiche les colonnes requises et valide le fichier."""
+def handle_upload(label, required_columns, display_columns=None, example_row=None, col=st, key=None):
+    """Gère l'upload, affiche un tableau d'exemples des colonnes et valide le fichier."""
     uploaded_file = col.file_uploader(label, type="csv", key=key)
-    col.caption(f"Colonnes requises : {', '.join(required_columns)}")
+    
+    if display_columns is None:
+        display_columns = required_columns
+    
+    if example_row:
+        html_table = f"""
+        <div style="margin-bottom: 10px; border-radius: 5px; overflow: hidden; border: 1px solid #e2e8f0;">
+        <table style="font-size: 11.5px; width: 100%; border-collapse: collapse; font-family: sans-serif;">
+            <thead>
+                <tr style="background-color: #f1f5f9; border-bottom: 1px solid #cbd5e1; color: #334155;">
+                    {''.join([f'<th style="padding: 6px; text-align: left; font-weight: 600;">{c}</th>' for c in display_columns])}
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: transparent; color: #64748b;">
+                    {''.join([f'<td style="padding: 6px; border-right: 1px dashed #e2e8f0;">{v}</td>' for v in example_row])}
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        """
+        col.markdown(html_table, unsafe_allow_html=True)
+    else:
+        col.caption(f"Colonnes requises : {', '.join(required_columns)}")
     
     if uploaded_file is not None:
         try:
@@ -74,17 +97,43 @@ with tab1:
     st.subheader("1. Importation des fichiers (Entrées)")
     col1, col2 = st.columns(2)
     
-    df_entrepots = handle_upload("Catalogue des Entrepôts (CSV)", ['nom', 'lat', 'lon', 'type_stockage'], col1)
-    df_iot = handle_upload("Historique Capteurs IoT (CSV)", ['nom_entrepot', 'temperature', 'humidite'], col2)
-    df_trajets = handle_upload("Trajets logistiques (CSV)", ['client_id', 'lat', 'lon', 'type_requis'], st)
+    df_entrepots = handle_upload(
+        "Catalogue des Entrepôts (CSV)", 
+        ['nom', 'lat', 'lon', 'type_stockage', 'volume'],
+        ['nom', 'lat', 'lon', 'type_stockage', 'volume (m³)'],
+        ['Entrep_A', '33.5', '-7.6', 'froid', '5000'],
+        col=col1
+    )
+    df_iot = handle_upload(
+        "Historique Capteurs IoT (CSV)", 
+        ['nom_entrepot', 'date', 'temperature', 'humidite'],
+        ['nom_entrepot', 'date', 'température (°C)', 'humidité (%)'],
+        ['Hub_Casablanca', '2025-01-01 08:00:00', '4.2', '60.5'],
+        col=col2
+    )
+    df_trajets = handle_upload(
+        "Trajets logistiques (CSV)", 
+        ['client_id', 'lat', 'lon', 'type_requis'],
+        ['client_id', 'lat', 'lon', 'type_requis'],
+        ['C001', '33.58', '-7.62', 'sec'],
+        col=st
+    )
     
     # --- SECTION 2 : BESOINS SPÉCIFIQUES ET POIDS ---
     st.subheader("2. Paramétrage des priorités (Contraintes)")
-    w_dist = st.slider("Importance de la Proximité (Wi)", 0.0, 1.0, 0.5)
-    w_temp = st.slider("Importance Stabilité Température (Wi)", 0.0, 1.0, 0.3)
-    w_hum = st.slider("Importance Contrôle Humidité (Wi)", 0.0, 1.0, 0.2)
+    w_dist = st.slider("Importance de la Proximité (%)", 0, 100, 50, step=5)
+    w_temp = st.slider("Importance Stabilité Température (%)", 0, 100, 30, step=5)
+    w_hum = st.slider("Importance Contrôle Humidité (%)", 0, 100, 20, step=5)
     
-    poids = {'dist': w_dist, 'temp': w_temp, 'hum': w_hum}
+    # Amélioration Expert (Sous le code) : Normalisation automatique à 100%
+    somme = w_dist + w_temp + w_hum
+    if somme == 0:
+        st.warning("⚠️ Veuillez accorder de l'importance à au moins un critère de base.")
+        poids = {'dist': 0.5, 'temp': 0.3, 'hum': 0.2}
+    else:
+        poids = {'dist': w_dist / somme, 'temp': w_temp / somme, 'hum': w_hum / somme}
+        if somme != 100:
+            st.caption(f"*(ℹ️ Normalisation automatique : Ajustement mathématique (Vos curseurs totalisaient {somme}%))*")
     
     # --- SECTION 3 : TRAITEMENT ET SORTIE ---
     if st.button("Lancer l'Analyse"):
@@ -92,7 +141,7 @@ with tab1:
         if df_entrepots is not None and df_iot is not None and df_trajets is not None:
             with st.spinner('Analyse des scores en cours...'):
                 
-                # Calcul de conformité IoT simplifiée pour le test
+                # Calcul de conformité IoT : Moyenne par entrepôt (avec support colonne 'date')
                 stats_iot = df_iot.groupby('nom_entrepot').agg({
                     'temperature': 'mean',
                     'humidite': 'mean'
@@ -130,16 +179,33 @@ with tab1:
                         })
     
                 if resultats:
-                    df_final = pd.DataFrame(resultats).sort_values(by="Score Global", ascending=False)
-                    st.success("Analyse terminée !")
-                    st.write("### Classement des meilleures options logistiques")
-                    st.dataframe(df_final, use_container_width=True)
+                    df_final = pd.DataFrame(resultats).sort_values(by="Score Global", ascending=False).reset_index(drop=True)
+                    df_final.index = df_final.index + 1  # Classement commence à 1
+                    st.success("Analyse de Recommandation terminée !")
                     
-                    # Mise en avant du meilleur
-                    meilleur = df_final.iloc[0]
-                    st.info(f"Meilleur choix : {meilleur['Entrepôt']} (Score: {meilleur['Score Global']}/100)")
+                    st.subheader("Top 3 des Recommandations")
+                    top3 = df_final.head(3)
+                    cols = st.columns(3)
+                    
+                    for i, (idx, row) in enumerate(top3.iterrows()):
+                        with cols[i]:
+                            medals = ["🥇 1er Choix", "🥈 2ème", "🥉 3ème"]
+                            st.metric(
+                                label=f"{medals[i]} : {row['Entrepôt']}", 
+                                value=f"{row['Score Global']}/100", 
+                                delta=f"{row['Distance (km)']} km", 
+                                delta_color="inverse"
+                            )
+                    
+                    st.divider()
+                    st.subheader("Visualisation Cartographique")
+                    afficher_carte_recommandation(trajet, df_entrepots, df_final)
+                    
+                    st.divider()
+                    st.write("Détail complet des scores :")
+                    st.dataframe(df_final, use_container_width=True)
                 else:
-                    st.warning("Aucun entrepôt ne correspond au type de stockage requis.")
+                    st.warning("Aucun entrepôt ne correspond au type de stockage requis pour ce client.")
         else:
             st.error("Veuillez importer des fichiers valides pour les trois catégories afin de continuer.")
 
@@ -156,7 +222,14 @@ with tab2:
     
     st.markdown("Trouvez le centre de gravité logistique parfait pour un panel de clients.")
     
-    df_demande = handle_upload("Fichier des points de demande", ['ville', 'lat', 'lon', 'demande'], st, key="upload_demande")
+    df_demande = handle_upload(
+        "Fichier des points de demande", 
+        ['ville', 'lat', 'lon', 'demande', 'tarif_transport'], 
+        ['ville', 'lat', 'lon', 'demande', 'tarif_transport (MAD/km)'],
+        ['Casablanca', '33.57', '-7.58', '1500', '1.2'],
+        col=st, 
+        key="upload_demande"
+    )
 
     if df_demande is not None:
         with st.spinner('Calcul du centre de gravité en cours...'):
@@ -164,9 +237,10 @@ with tab2:
             resultats = run_analyse(df_demande)
             
             # Affichage des KPIs
-            col1, col2 = st.columns(2)
+            col1, col2, col3 = st.columns(3)
             col1.metric("Latitude Optimale", f"{resultats['coordonnees_optimales'][0]:.5f}")
             col2.metric("Longitude Optimale", f"{resultats['coordonnees_optimales'][1]:.5f}")
+            col3.metric("Coût Total de Transport", f"{resultats['cout_transport_global']:,.2f} Dhs")
             
             st.divider()
             
