@@ -91,7 +91,7 @@ def afficher_carte_recommandation(trajet, df_entrepots, df_final):
         location=[trajet['lat'], trajet['lon']],
         popup=f"<b>Client: {trajet.get('client_id', 'Inconnu')}</b><br>Besoin: {trajet.get('type_requis', 'Non spécifié')}",
         tooltip="📍 Point de Livraison Client",
-        icon=folium.Icon(color="blue", icon="user", prefix='fa')
+        icon=folium.Icon(color="red", icon="map-marker", prefix='fa')
     ).add_to(carte)
 
     # 3. Podium avec couleurs sémantiques claires

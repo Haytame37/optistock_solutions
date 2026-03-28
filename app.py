@@ -4,6 +4,8 @@ import pandas as pd
 # Configuration de la page
 st.set_page_config(page_title="OptiStock Solutions", layout="wide")
 
+
+
 st.title("🏭 OptiStock Solutions")
 st.sidebar.success("Sélectionnez un module ci-dessus.")
 
