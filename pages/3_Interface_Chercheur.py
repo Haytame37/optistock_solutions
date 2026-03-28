@@ -148,6 +148,16 @@ with tab1:
                 }).reset_index()
     
                 resultats = []
+                entrepots_sans_iot = []
+                
+                # Valeurs IoT par défaut selon le type de stockage
+                # (médianes réalistes utilisées quand les capteurs sont absents)
+                IOT_DEFAULTS = {
+                    "froid": {"temperature": 4.0, "humidite": 82.0},
+                    "sec":   {"temperature": 22.0, "humidite": 45.0},
+                    "mixte": {"temperature": 12.0, "humidite": 60.0},
+                }
+                PENALITE_SANS_IOT = 0.85  # 15% de pénalité sur le score final
                 
                 # On prend le premier trajet pour l'exemple
                 # (Dans un vrai système, on bouclerait sur df_trajets)
@@ -161,27 +171,49 @@ with tab1:
                         # Récupération données IoT
                         iot_row = stats_iot[stats_iot['nom_entrepot'] == ent['nom']]
                         
+                        has_iot = True
                         if iot_row.empty:
-                            st.warning(f"Données IoT absentes pour l'entrepôt '{ent['nom']}'. Exclu de la sélection de sécurité.")
-                            continue 
-                        
-                        t_val = iot_row['temperature'].values[0]
-                        h_val = iot_row['humidite'].values[0]
+                            # Utiliser des valeurs par défaut au lieu d'exclure
+                            defaults = IOT_DEFAULTS.get(ent['type_stockage'], IOT_DEFAULTS["mixte"])
+                            t_val = defaults["temperature"]
+                            h_val = defaults["humidite"]
+                            has_iot = False
+                            entrepots_sans_iot.append(ent['nom'])
+                        else:
+                            t_val = iot_row['temperature'].values[0]
+                            h_val = iot_row['humidite'].values[0]
     
                         # Calcul du score via la formule pondérée
                         s = calculer_score_mixte(d, t_val, h_val, poids)
+                        
+                        # Appliquer une pénalité si pas de données IoT réelles
+                        if not has_iot:
+                            s = round(s * PENALITE_SANS_IOT, 2)
                         
                         resultats.append({
                             "Entrepôt": ent['nom'],
                             "Score Global": s,
                             "Distance (km)": round(d, 2),
-                            "Type": ent['type_stockage']
+                            "Type": ent['type_stockage'],
+                            "IoT": "✅" if has_iot else "⚠️ Estimé"
                         })
     
                 if resultats:
                     df_final = pd.DataFrame(resultats).sort_values(by="Score Global", ascending=False).reset_index(drop=True)
                     df_final.index = df_final.index + 1  # Classement commence à 1
                     st.success("Analyse de Recommandation terminée !")
+                    
+                    # Résumé IoT manquant (compact, pas de flood de warnings)
+                    if entrepots_sans_iot:
+                        with st.expander(f"ℹ️ {len(entrepots_sans_iot)} entrepôt(s) sans données IoT — Score estimé avec pénalité de {int((1-PENALITE_SANS_IOT)*100)}%"):
+                            st.caption("Ces entrepôts utilisent des valeurs IoT par défaut basées sur leur type de stockage. "
+                                       "Pour un score plus précis, importez un fichier IoT couvrant tous les entrepôts.")
+                            # Afficher les noms sur 3 colonnes
+                            cols_info = st.columns(3)
+                            for j, name in enumerate(entrepots_sans_iot[:30]):  # Limiter à 30
+                                cols_info[j % 3].caption(f"• {name}")
+                            if len(entrepots_sans_iot) > 30:
+                                st.caption(f"... et {len(entrepots_sans_iot) - 30} autres.")
                     
                     st.subheader("Top 3 des Recommandations")
                     top3 = df_final.head(3)
@@ -190,9 +222,10 @@ with tab1:
                     for i, (idx, row) in enumerate(top3.iterrows()):
                         with cols[i]:
                             medals = ["🥇 1er Choix", "🥈 2ème", "🥉 3ème"]
+                            iot_badge = " 📡" if row.get('IoT') == "✅" else " ⚠️"
                             st.metric(
                                 label=f"{medals[i]} : {row['Entrepôt']}", 
-                                value=f"{row['Score Global']}/100", 
+                                value=f"{row['Score Global']}/100{iot_badge}", 
                                 delta=f"{row['Distance (km)']} km", 
                                 delta_color="inverse"
                             )

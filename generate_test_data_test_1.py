@@ -167,16 +167,16 @@ print(f"   ✅ {len(df_entrepots)} lignes générées.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  3. HISTORIQUE IoT — 1000 lignes
+#  3. HISTORIQUE IoT — ~50 000 lignes (50 relevés × 1000 entrepôts)
 #     Colonnes : nom_entrepot, date, temperature, humidite
+#     Chaque entrepôt du catalogue reçoit 50 mesures capteurs sur l'année 2025
 # ══════════════════════════════════════════════════════════════════════════════
 
 print("🌡️  Génération de historique_iot_test_1.csv ...")
 
-# Sélectionner 20 entrepôts du catalogue pour y rattacher les données IoT
-entrepots_iot = df_entrepots["nom"].unique()[:20]
+# Générer des données IoT pour TOUS les entrepôts du catalogue
+entrepots_iot = df_entrepots["nom"].unique()
 
-# Répartir les 1000 relevés entre les 20 entrepôts (50 relevés chacun)
 rows_iot = []
 dates_range = pd.date_range("2025-01-01", "2025-12-31 23:00:00", freq="6h")
 
@@ -196,7 +196,7 @@ for ent_nom in entrepots_iot:
         temp_base, temp_noise = 12.0, 3.0
         hum_base, hum_noise = 60.0, 6.0
     
-    # 50 relevés par entrepôt = 1000 total
+    # 50 relevés par entrepôt
     sample_dates = np.random.choice(dates_range, size=50, replace=False)
     sample_dates = sorted(sample_dates)
     
@@ -223,7 +223,7 @@ for ent_nom in entrepots_iot:
 
 df_iot = pd.DataFrame(rows_iot)
 df_iot.to_csv(os.path.join(OUTPUT_DIR, "historique_iot_test_1.csv"), index=False, encoding="utf-8-sig")
-print(f"   ✅ {len(df_iot)} lignes générées.")
+print(f"   ✅ {len(df_iot)} lignes générées ({len(entrepots_iot)} entrepôts × 50 relevés).")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
