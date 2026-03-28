@@ -1,0 +1,1001 @@
+﻿nom_entrepot,date,temperature,humidite
+Zone Mohammedia #0001,2025-01-15 06:00:00,0.75,80.15
+Zone Mohammedia #0001,2025-01-19 12:00:00,1.96,78.03
+Zone Mohammedia #0001,2025-01-21 12:00:00,0.66,77.28
+Zone Mohammedia #0001,2025-01-26 06:00:00,0.77,85.15
+Zone Mohammedia #0001,2025-01-28 00:00:00,1.82,78.81
+Zone Mohammedia #0001,2025-02-05 18:00:00,2.2,81.6
+Zone Mohammedia #0001,2025-02-06 06:00:00,0.98,89.86
+Zone Mohammedia #0001,2025-02-09 00:00:00,-0.43,81.04
+Zone Mohammedia #0001,2025-02-10 00:00:00,1.67,81.66
+Zone Mohammedia #0001,2025-02-12 06:00:00,3.24,79.5
+Zone Mohammedia #0001,2025-02-14 18:00:00,3.22,78.68
+Zone Mohammedia #0001,2025-02-24 06:00:00,3.09,77.07
+Zone Mohammedia #0001,2025-03-02 06:00:00,1.84,81.53
+Zone Mohammedia #0001,2025-03-08 00:00:00,1.75,78.57
+Zone Mohammedia #0001,2025-03-14 12:00:00,1.73,83.86
+Zone Mohammedia #0001,2025-03-17 18:00:00,1.3,83.77
+Zone Mohammedia #0001,2025-04-12 18:00:00,2.13,84.44
+Zone Mohammedia #0001,2025-04-18 12:00:00,4.45,83.07
+Zone Mohammedia #0001,2025-05-15 18:00:00,6.34,77.42
+Zone Mohammedia #0001,2025-05-20 12:00:00,2.63,86.14
+Zone Mohammedia #0001,2025-05-30 12:00:00,6.02,82.61
+Zone Mohammedia #0001,2025-06-08 00:00:00,7.49,86.4
+Zone Mohammedia #0001,2025-06-08 18:00:00,7.72,87.32
+Zone Mohammedia #0001,2025-06-22 18:00:00,8.64,86.73
+Zone Mohammedia #0001,2025-07-10 00:00:00,5.12,85.24
+Zone Mohammedia #0001,2025-07-13 12:00:00,6.72,79.94
+Zone Mohammedia #0001,2025-07-17 18:00:00,5.04,79.12
+Zone Mohammedia #0001,2025-07-19 18:00:00,7.75,86.37
+Zone Mohammedia #0001,2025-07-23 00:00:00,5.62,81.34
+Zone Mohammedia #0001,2025-07-29 12:00:00,5.26,88.03
+Zone Mohammedia #0001,2025-08-04 06:00:00,7.06,87.22
+Zone Mohammedia #0001,2025-08-28 12:00:00,3.6,84.58
+Zone Mohammedia #0001,2025-08-30 00:00:00,5.14,74.22
+Zone Mohammedia #0001,2025-09-02 00:00:00,3.3,78.56
+Zone Mohammedia #0001,2025-09-17 00:00:00,4.71,93.54
+Zone Mohammedia #0001,2025-10-03 06:00:00,3.96,84.92
+Zone Mohammedia #0001,2025-10-08 00:00:00,4.94,80.18
+Zone Mohammedia #0001,2025-10-11 18:00:00,5.73,80.54
+Zone Mohammedia #0001,2025-10-15 18:00:00,4.23,77.57
+Zone Mohammedia #0001,2025-10-23 00:00:00,4.16,79.64
+Zone Mohammedia #0001,2025-11-10 00:00:00,2.24,82.29
+Zone Mohammedia #0001,2025-11-16 12:00:00,6.29,82.53
+Zone Mohammedia #0001,2025-11-20 12:00:00,1.58,78.73
+Zone Mohammedia #0001,2025-11-26 12:00:00,1.31,82.85
+Zone Mohammedia #0001,2025-12-04 06:00:00,3.54,84.97
+Zone Mohammedia #0001,2025-12-06 12:00:00,2.67,78.59
+Zone Mohammedia #0001,2025-12-13 00:00:00,3.01,86.91
+Zone Mohammedia #0001,2025-12-15 06:00:00,3.44,73.74
+Zone Mohammedia #0001,2025-12-16 00:00:00,2.52,77.19
+Zone Mohammedia #0001,2025-12-26 06:00:00,-0.22,73.4
+Plateforme Ouarzazate Solar #0002,2025-01-01 00:00:00,8.79,65.56
+Plateforme Ouarzazate Solar #0002,2025-01-19 18:00:00,9.09,53.13
+Plateforme Ouarzazate Solar #0002,2025-01-20 12:00:00,14.7,61.6
+Plateforme Ouarzazate Solar #0002,2025-01-27 00:00:00,5.63,59.53
+Plateforme Ouarzazate Solar #0002,2025-02-12 12:00:00,3.37,61.88
+Plateforme Ouarzazate Solar #0002,2025-02-13 06:00:00,7.89,73.25
+Plateforme Ouarzazate Solar #0002,2025-02-19 18:00:00,10.51,62.62
+Plateforme Ouarzazate Solar #0002,2025-02-21 18:00:00,6.43,50.6
+Plateforme Ouarzazate Solar #0002,2025-02-26 00:00:00,6.62,63.35
+Plateforme Ouarzazate Solar #0002,2025-02-27 18:00:00,9.56,57.54
+Plateforme Ouarzazate Solar #0002,2025-03-13 12:00:00,8.21,46.57
+Plateforme Ouarzazate Solar #0002,2025-03-14 00:00:00,4.77,67.53
+Plateforme Ouarzazate Solar #0002,2025-03-24 12:00:00,5.87,65.79
+Plateforme Ouarzazate Solar #0002,2025-04-05 00:00:00,11.52,60.79
+Plateforme Ouarzazate Solar #0002,2025-04-24 00:00:00,12.42,69.97
+Plateforme Ouarzazate Solar #0002,2025-04-24 12:00:00,13.2,60.0
+Plateforme Ouarzazate Solar #0002,2025-04-29 00:00:00,16.08,55.52
+Plateforme Ouarzazate Solar #0002,2025-05-07 18:00:00,15.11,57.94
+Plateforme Ouarzazate Solar #0002,2025-05-09 00:00:00,15.03,68.6
+Plateforme Ouarzazate Solar #0002,2025-05-09 18:00:00,7.88,57.07
+Plateforme Ouarzazate Solar #0002,2025-05-20 18:00:00,13.15,59.46
+Plateforme Ouarzazate Solar #0002,2025-05-24 12:00:00,11.92,55.77
+Plateforme Ouarzazate Solar #0002,2025-06-19 12:00:00,15.72,67.77
+Plateforme Ouarzazate Solar #0002,2025-06-20 00:00:00,15.38,73.49
+Plateforme Ouarzazate Solar #0002,2025-06-20 12:00:00,15.2,57.98
+Plateforme Ouarzazate Solar #0002,2025-06-22 06:00:00,13.2,59.26
+Plateforme Ouarzazate Solar #0002,2025-06-24 06:00:00,15.55,51.77
+Plateforme Ouarzazate Solar #0002,2025-06-30 06:00:00,12.66,60.91
+Plateforme Ouarzazate Solar #0002,2025-07-01 18:00:00,14.34,62.21
+Plateforme Ouarzazate Solar #0002,2025-07-02 00:00:00,13.32,65.36
+Plateforme Ouarzazate Solar #0002,2025-07-20 18:00:00,20.44,63.31
+Plateforme Ouarzazate Solar #0002,2025-07-24 12:00:00,14.58,60.74
+Plateforme Ouarzazate Solar #0002,2025-07-30 12:00:00,12.81,48.76
+Plateforme Ouarzazate Solar #0002,2025-08-05 00:00:00,19.54,63.62
+Plateforme Ouarzazate Solar #0002,2025-08-29 12:00:00,15.35,53.98
+Plateforme Ouarzazate Solar #0002,2025-09-01 12:00:00,13.3,56.88
+Plateforme Ouarzazate Solar #0002,2025-09-15 18:00:00,15.27,59.5
+Plateforme Ouarzazate Solar #0002,2025-09-20 06:00:00,9.24,55.4
+Plateforme Ouarzazate Solar #0002,2025-09-27 00:00:00,12.51,58.02
+Plateforme Ouarzazate Solar #0002,2025-10-01 12:00:00,12.47,49.26
+Plateforme Ouarzazate Solar #0002,2025-10-04 00:00:00,10.46,61.18
+Plateforme Ouarzazate Solar #0002,2025-10-05 12:00:00,12.83,53.05
+Plateforme Ouarzazate Solar #0002,2025-10-23 06:00:00,18.48,65.09
+Plateforme Ouarzazate Solar #0002,2025-10-31 06:00:00,13.31,60.79
+Plateforme Ouarzazate Solar #0002,2025-11-01 00:00:00,10.51,60.64
+Plateforme Ouarzazate Solar #0002,2025-11-14 12:00:00,12.46,48.91
+Plateforme Ouarzazate Solar #0002,2025-11-26 18:00:00,9.96,60.52
+Plateforme Ouarzazate Solar #0002,2025-12-13 06:00:00,10.11,55.94
+Plateforme Ouarzazate Solar #0002,2025-12-21 12:00:00,9.72,58.88
+Plateforme Ouarzazate Solar #0002,2025-12-27 12:00:00,10.99,56.53
+Zone Guelmim #0003,2025-01-03 12:00:00,17.02,41.08
+Zone Guelmim #0003,2025-01-10 00:00:00,22.72,33.19
+Zone Guelmim #0003,2025-01-26 18:00:00,22.71,42.39
+Zone Guelmim #0003,2025-01-27 06:00:00,24.25,39.96
+Zone Guelmim #0003,2025-02-02 06:00:00,17.39,43.22
+Zone Guelmim #0003,2025-02-05 00:00:00,24.3,53.13
+Zone Guelmim #0003,2025-02-28 06:00:00,22.94,58.77
+Zone Guelmim #0003,2025-03-07 00:00:00,21.1,45.18
+Zone Guelmim #0003,2025-03-07 06:00:00,23.38,32.7
+Zone Guelmim #0003,2025-03-26 06:00:00,23.35,50.43
+Zone Guelmim #0003,2025-03-28 12:00:00,21.76,52.17
+Zone Guelmim #0003,2025-04-07 06:00:00,18.47,33.17
+Zone Guelmim #0003,2025-05-09 18:00:00,26.27,52.64
+Zone Guelmim #0003,2025-05-12 00:00:00,20.62,38.61
+Zone Guelmim #0003,2025-05-24 06:00:00,25.29,44.56
+Zone Guelmim #0003,2025-05-24 18:00:00,25.78,46.12
+Zone Guelmim #0003,2025-05-29 06:00:00,26.48,40.99
+Zone Guelmim #0003,2025-06-03 12:00:00,18.86,39.07
+Zone Guelmim #0003,2025-06-17 06:00:00,24.07,48.31
+Zone Guelmim #0003,2025-06-30 12:00:00,20.42,37.14
+Zone Guelmim #0003,2025-07-04 12:00:00,13.0,33.12
+Zone Guelmim #0003,2025-07-06 12:00:00,23.14,42.2
+Zone Guelmim #0003,2025-07-09 18:00:00,26.33,44.71
+Zone Guelmim #0003,2025-07-13 12:00:00,27.83,46.07
+Zone Guelmim #0003,2025-07-14 12:00:00,26.61,48.14
+Zone Guelmim #0003,2025-07-20 00:00:00,17.36,48.51
+Zone Guelmim #0003,2025-07-23 18:00:00,26.97,31.35
+Zone Guelmim #0003,2025-07-26 18:00:00,23.68,41.36
+Zone Guelmim #0003,2025-08-24 06:00:00,26.49,50.82
+Zone Guelmim #0003,2025-09-02 12:00:00,20.34,41.07
+Zone Guelmim #0003,2025-09-16 18:00:00,19.73,50.74
+Zone Guelmim #0003,2025-09-30 18:00:00,22.37,46.07
+Zone Guelmim #0003,2025-10-02 00:00:00,22.43,41.44
+Zone Guelmim #0003,2025-10-02 12:00:00,17.72,53.66
+Zone Guelmim #0003,2025-10-08 18:00:00,23.03,57.04
+Zone Guelmim #0003,2025-10-09 12:00:00,27.67,46.11
+Zone Guelmim #0003,2025-10-12 12:00:00,22.22,53.46
+Zone Guelmim #0003,2025-10-17 06:00:00,18.64,50.14
+Zone Guelmim #0003,2025-10-22 06:00:00,20.11,34.36
+Zone Guelmim #0003,2025-11-18 00:00:00,20.25,47.33
+Zone Guelmim #0003,2025-11-22 06:00:00,18.27,53.84
+Zone Guelmim #0003,2025-11-30 06:00:00,24.05,43.71
+Zone Guelmim #0003,2025-12-01 18:00:00,23.73,38.08
+Zone Guelmim #0003,2025-12-04 00:00:00,17.64,40.95
+Zone Guelmim #0003,2025-12-08 18:00:00,22.5,46.88
+Zone Guelmim #0003,2025-12-11 18:00:00,21.43,42.95
+Zone Guelmim #0003,2025-12-12 06:00:00,25.6,34.66
+Zone Guelmim #0003,2025-12-20 06:00:00,21.24,54.6
+Zone Guelmim #0003,2025-12-28 00:00:00,20.56,52.07
+Zone Guelmim #0003,2025-12-28 12:00:00,18.73,42.4
+Entrepôt Meknès Agropolis #0004,2025-01-07 00:00:00,18.48,56.24
+Entrepôt Meknès Agropolis #0004,2025-01-13 12:00:00,23.92,43.73
+Entrepôt Meknès Agropolis #0004,2025-01-15 00:00:00,24.0,51.97
+Entrepôt Meknès Agropolis #0004,2025-01-18 00:00:00,17.79,30.11
+Entrepôt Meknès Agropolis #0004,2025-01-25 18:00:00,21.64,52.6
+Entrepôt Meknès Agropolis #0004,2025-02-05 12:00:00,21.91,48.85
+Entrepôt Meknès Agropolis #0004,2025-02-13 00:00:00,21.01,49.54
+Entrepôt Meknès Agropolis #0004,2025-02-13 18:00:00,21.8,29.2
+Entrepôt Meknès Agropolis #0004,2025-02-16 12:00:00,22.26,52.33
+Entrepôt Meknès Agropolis #0004,2025-02-20 06:00:00,24.75,47.48
+Entrepôt Meknès Agropolis #0004,2025-02-20 12:00:00,22.15,47.51
+Entrepôt Meknès Agropolis #0004,2025-03-07 00:00:00,19.44,50.0
+Entrepôt Meknès Agropolis #0004,2025-03-12 06:00:00,23.34,55.66
+Entrepôt Meknès Agropolis #0004,2025-03-12 18:00:00,21.06,44.87
+Entrepôt Meknès Agropolis #0004,2025-03-20 00:00:00,19.69,41.86
+Entrepôt Meknès Agropolis #0004,2025-03-31 00:00:00,14.51,52.94
+Entrepôt Meknès Agropolis #0004,2025-04-13 18:00:00,15.83,45.43
+Entrepôt Meknès Agropolis #0004,2025-04-24 12:00:00,27.19,50.36
+Entrepôt Meknès Agropolis #0004,2025-05-05 00:00:00,23.4,43.93
+Entrepôt Meknès Agropolis #0004,2025-05-05 06:00:00,26.36,54.15
+Entrepôt Meknès Agropolis #0004,2025-05-08 06:00:00,28.07,41.02
+Entrepôt Meknès Agropolis #0004,2025-05-13 06:00:00,23.76,42.73
+Entrepôt Meknès Agropolis #0004,2025-05-22 00:00:00,21.29,43.35
+Entrepôt Meknès Agropolis #0004,2025-05-24 00:00:00,20.59,47.13
+Entrepôt Meknès Agropolis #0004,2025-05-27 00:00:00,26.75,44.16
+Entrepôt Meknès Agropolis #0004,2025-06-03 06:00:00,22.76,50.55
+Entrepôt Meknès Agropolis #0004,2025-06-12 06:00:00,27.86,49.11
+Entrepôt Meknès Agropolis #0004,2025-06-14 12:00:00,28.28,34.92
+Entrepôt Meknès Agropolis #0004,2025-06-28 12:00:00,25.13,63.35
+Entrepôt Meknès Agropolis #0004,2025-07-04 18:00:00,32.33,40.91
+Entrepôt Meknès Agropolis #0004,2025-07-22 12:00:00,27.2,50.94
+Entrepôt Meknès Agropolis #0004,2025-07-24 18:00:00,24.06,45.51
+Entrepôt Meknès Agropolis #0004,2025-08-07 12:00:00,25.97,48.68
+Entrepôt Meknès Agropolis #0004,2025-08-15 06:00:00,29.77,59.66
+Entrepôt Meknès Agropolis #0004,2025-08-16 06:00:00,23.88,46.07
+Entrepôt Meknès Agropolis #0004,2025-09-06 12:00:00,25.13,30.3
+Entrepôt Meknès Agropolis #0004,2025-09-10 00:00:00,23.9,54.35
+Entrepôt Meknès Agropolis #0004,2025-09-20 18:00:00,19.9,34.14
+Entrepôt Meknès Agropolis #0004,2025-10-02 06:00:00,14.24,41.79
+Entrepôt Meknès Agropolis #0004,2025-10-05 18:00:00,19.65,54.1
+Entrepôt Meknès Agropolis #0004,2025-10-06 18:00:00,21.84,44.11
+Entrepôt Meknès Agropolis #0004,2025-10-08 12:00:00,19.41,58.57
+Entrepôt Meknès Agropolis #0004,2025-10-09 12:00:00,23.48,59.61
+Entrepôt Meknès Agropolis #0004,2025-10-14 18:00:00,24.69,55.51
+Entrepôt Meknès Agropolis #0004,2025-10-20 18:00:00,27.53,43.28
+Entrepôt Meknès Agropolis #0004,2025-11-11 12:00:00,18.13,42.76
+Entrepôt Meknès Agropolis #0004,2025-11-28 06:00:00,18.56,45.44
+Entrepôt Meknès Agropolis #0004,2025-11-30 18:00:00,18.62,28.4
+Entrepôt Meknès Agropolis #0004,2025-12-08 12:00:00,18.58,46.16
+Entrepôt Meknès Agropolis #0004,2025-12-12 12:00:00,16.41,45.53
+Entrepôt Errachidia #0005,2025-01-07 00:00:00,9.64,57.15
+Entrepôt Errachidia #0005,2025-01-13 12:00:00,4.42,60.25
+Entrepôt Errachidia #0005,2025-01-15 06:00:00,5.2,72.91
+Entrepôt Errachidia #0005,2025-01-21 00:00:00,6.42,62.49
+Entrepôt Errachidia #0005,2025-02-07 06:00:00,8.2,45.08
+Entrepôt Errachidia #0005,2025-02-14 12:00:00,8.01,60.6
+Entrepôt Errachidia #0005,2025-02-15 12:00:00,10.5,54.14
+Entrepôt Errachidia #0005,2025-02-24 18:00:00,8.79,49.69
+Entrepôt Errachidia #0005,2025-03-07 00:00:00,10.32,64.43
+Entrepôt Errachidia #0005,2025-03-13 06:00:00,9.61,54.15
+Entrepôt Errachidia #0005,2025-03-25 18:00:00,12.77,62.47
+Entrepôt Errachidia #0005,2025-04-01 06:00:00,12.81,52.68
+Entrepôt Errachidia #0005,2025-04-03 12:00:00,7.72,60.69
+Entrepôt Errachidia #0005,2025-04-06 00:00:00,7.09,64.76
+Entrepôt Errachidia #0005,2025-04-06 06:00:00,14.82,61.01
+Entrepôt Errachidia #0005,2025-04-09 06:00:00,12.1,58.07
+Entrepôt Errachidia #0005,2025-05-07 00:00:00,9.68,54.77
+Entrepôt Errachidia #0005,2025-05-12 00:00:00,15.65,57.68
+Entrepôt Errachidia #0005,2025-05-31 00:00:00,10.67,53.09
+Entrepôt Errachidia #0005,2025-06-04 18:00:00,16.6,61.59
+Entrepôt Errachidia #0005,2025-06-08 00:00:00,21.87,60.2
+Entrepôt Errachidia #0005,2025-06-10 00:00:00,15.8,53.66
+Entrepôt Errachidia #0005,2025-06-19 00:00:00,13.98,55.37
+Entrepôt Errachidia #0005,2025-06-20 00:00:00,9.77,58.34
+Entrepôt Errachidia #0005,2025-07-06 12:00:00,12.03,52.43
+Entrepôt Errachidia #0005,2025-07-08 06:00:00,14.28,76.24
+Entrepôt Errachidia #0005,2025-07-10 06:00:00,17.97,66.12
+Entrepôt Errachidia #0005,2025-07-16 12:00:00,17.86,64.11
+Entrepôt Errachidia #0005,2025-07-17 12:00:00,10.35,69.52
+Entrepôt Errachidia #0005,2025-08-10 18:00:00,14.36,62.75
+Entrepôt Errachidia #0005,2025-08-13 06:00:00,10.35,62.42
+Entrepôt Errachidia #0005,2025-08-13 12:00:00,14.38,56.09
+Entrepôt Errachidia #0005,2025-08-24 12:00:00,16.76,65.19
+Entrepôt Errachidia #0005,2025-08-26 18:00:00,11.32,55.77
+Entrepôt Errachidia #0005,2025-09-18 18:00:00,10.3,60.7
+Entrepôt Errachidia #0005,2025-09-21 00:00:00,11.47,53.13
+Entrepôt Errachidia #0005,2025-09-27 12:00:00,13.13,61.93
+Entrepôt Errachidia #0005,2025-09-28 00:00:00,11.43,60.53
+Entrepôt Errachidia #0005,2025-10-24 12:00:00,7.73,60.06
+Entrepôt Errachidia #0005,2025-10-24 18:00:00,13.79,58.94
+Entrepôt Errachidia #0005,2025-10-27 18:00:00,5.29,55.8
+Entrepôt Errachidia #0005,2025-11-04 12:00:00,11.49,57.49
+Entrepôt Errachidia #0005,2025-11-07 12:00:00,13.33,56.42
+Entrepôt Errachidia #0005,2025-11-08 18:00:00,9.97,62.38
+Entrepôt Errachidia #0005,2025-11-15 12:00:00,12.15,48.2
+Entrepôt Errachidia #0005,2025-11-16 18:00:00,13.03,63.64
+Entrepôt Errachidia #0005,2025-11-25 06:00:00,9.68,62.06
+Entrepôt Errachidia #0005,2025-12-03 18:00:00,10.59,65.86
+Entrepôt Errachidia #0005,2025-12-24 18:00:00,10.8,59.99
+Entrepôt Errachidia #0005,2025-12-31 12:00:00,13.48,56.8
+Hub Tétouan #0006,2025-01-22 06:00:00,2.2,77.0
+Hub Tétouan #0006,2025-01-23 00:00:00,1.05,82.93
+Hub Tétouan #0006,2025-02-01 18:00:00,-0.44,82.41
+Hub Tétouan #0006,2025-02-02 06:00:00,-0.65,74.92
+Hub Tétouan #0006,2025-02-07 00:00:00,0.0,78.77
+Hub Tétouan #0006,2025-02-07 06:00:00,2.28,71.68
+Hub Tétouan #0006,2025-02-16 12:00:00,1.83,78.72
+Hub Tétouan #0006,2025-03-08 12:00:00,1.44,81.59
+Hub Tétouan #0006,2025-03-08 18:00:00,3.56,75.27
+Hub Tétouan #0006,2025-03-24 12:00:00,1.18,81.72
+Hub Tétouan #0006,2025-05-03 06:00:00,4.0,85.68
+Hub Tétouan #0006,2025-05-03 18:00:00,3.21,73.45
+Hub Tétouan #0006,2025-05-04 00:00:00,4.94,74.15
+Hub Tétouan #0006,2025-05-07 00:00:00,4.58,81.99
+Hub Tétouan #0006,2025-05-07 12:00:00,6.78,80.86
+Hub Tétouan #0006,2025-05-08 00:00:00,5.88,78.34
+Hub Tétouan #0006,2025-05-17 18:00:00,6.64,84.05
+Hub Tétouan #0006,2025-05-22 12:00:00,5.16,80.81
+Hub Tétouan #0006,2025-05-23 18:00:00,2.8,82.09
+Hub Tétouan #0006,2025-05-29 00:00:00,5.94,76.98
+Hub Tétouan #0006,2025-06-03 12:00:00,5.71,80.89
+Hub Tétouan #0006,2025-06-13 12:00:00,6.22,81.48
+Hub Tétouan #0006,2025-06-25 00:00:00,7.07,85.2
+Hub Tétouan #0006,2025-07-01 06:00:00,6.52,80.27
+Hub Tétouan #0006,2025-07-07 00:00:00,8.2,80.14
+Hub Tétouan #0006,2025-07-07 18:00:00,7.07,84.02
+Hub Tétouan #0006,2025-07-22 00:00:00,6.69,79.08
+Hub Tétouan #0006,2025-08-09 06:00:00,5.85,75.96
+Hub Tétouan #0006,2025-08-11 18:00:00,6.84,83.37
+Hub Tétouan #0006,2025-08-12 12:00:00,5.67,85.26
+Hub Tétouan #0006,2025-08-25 12:00:00,3.16,82.35
+Hub Tétouan #0006,2025-08-26 12:00:00,6.05,85.45
+Hub Tétouan #0006,2025-08-31 06:00:00,7.56,83.79
+Hub Tétouan #0006,2025-09-04 06:00:00,6.44,79.83
+Hub Tétouan #0006,2025-09-05 12:00:00,5.87,78.45
+Hub Tétouan #0006,2025-09-11 00:00:00,4.12,79.25
+Hub Tétouan #0006,2025-09-19 00:00:00,5.34,83.95
+Hub Tétouan #0006,2025-09-19 06:00:00,3.77,77.72
+Hub Tétouan #0006,2025-09-29 06:00:00,5.22,80.69
+Hub Tétouan #0006,2025-10-03 18:00:00,4.05,83.61
+Hub Tétouan #0006,2025-10-08 00:00:00,4.92,79.02
+Hub Tétouan #0006,2025-10-09 06:00:00,3.78,78.38
+Hub Tétouan #0006,2025-10-11 12:00:00,5.98,82.08
+Hub Tétouan #0006,2025-10-14 06:00:00,3.93,79.95
+Hub Tétouan #0006,2025-10-31 06:00:00,3.8,85.14
+Hub Tétouan #0006,2025-10-31 18:00:00,0.4,85.67
+Hub Tétouan #0006,2025-11-09 18:00:00,1.83,86.72
+Hub Tétouan #0006,2025-11-23 12:00:00,3.51,89.13
+Hub Tétouan #0006,2025-12-06 00:00:00,5.91,79.51
+Hub Tétouan #0006,2025-12-16 06:00:00,1.85,75.88
+Hub Fès Saïss #0007,2025-01-09 06:00:00,1.12,88.43
+Hub Fès Saïss #0007,2025-01-10 06:00:00,1.75,82.64
+Hub Fès Saïss #0007,2025-01-11 00:00:00,4.78,82.03
+Hub Fès Saïss #0007,2025-01-16 12:00:00,1.77,82.72
+Hub Fès Saïss #0007,2025-01-18 00:00:00,2.96,77.45
+Hub Fès Saïss #0007,2025-01-31 18:00:00,1.17,79.77
+Hub Fès Saïss #0007,2025-02-17 12:00:00,0.31,83.61
+Hub Fès Saïss #0007,2025-02-27 06:00:00,2.7,79.77
+Hub Fès Saïss #0007,2025-03-07 18:00:00,3.08,74.69
+Hub Fès Saïss #0007,2025-03-13 06:00:00,2.42,78.02
+Hub Fès Saïss #0007,2025-03-17 12:00:00,3.29,76.94
+Hub Fès Saïss #0007,2025-03-20 06:00:00,3.12,79.18
+Hub Fès Saïss #0007,2025-03-28 06:00:00,3.53,82.71
+Hub Fès Saïss #0007,2025-04-10 00:00:00,4.92,81.24
+Hub Fès Saïss #0007,2025-04-14 18:00:00,4.32,86.6
+Hub Fès Saïss #0007,2025-04-26 06:00:00,3.75,80.39
+Hub Fès Saïss #0007,2025-05-02 00:00:00,5.07,80.84
+Hub Fès Saïss #0007,2025-05-03 12:00:00,4.35,80.07
+Hub Fès Saïss #0007,2025-05-06 06:00:00,5.22,88.85
+Hub Fès Saïss #0007,2025-05-06 18:00:00,6.06,84.25
+Hub Fès Saïss #0007,2025-05-09 12:00:00,3.56,84.38
+Hub Fès Saïss #0007,2025-05-13 00:00:00,6.14,86.5
+Hub Fès Saïss #0007,2025-05-16 00:00:00,5.45,83.2
+Hub Fès Saïss #0007,2025-05-17 00:00:00,3.82,82.32
+Hub Fès Saïss #0007,2025-05-21 12:00:00,7.34,75.13
+Hub Fès Saïss #0007,2025-06-14 18:00:00,4.93,80.63
+Hub Fès Saïss #0007,2025-06-30 18:00:00,3.14,79.77
+Hub Fès Saïss #0007,2025-07-10 00:00:00,6.42,88.87
+Hub Fès Saïss #0007,2025-07-17 06:00:00,6.32,78.96
+Hub Fès Saïss #0007,2025-07-27 06:00:00,5.62,83.35
+Hub Fès Saïss #0007,2025-08-07 12:00:00,7.41,85.67
+Hub Fès Saïss #0007,2025-08-25 12:00:00,7.29,77.68
+Hub Fès Saïss #0007,2025-09-02 12:00:00,3.96,80.95
+Hub Fès Saïss #0007,2025-09-04 06:00:00,5.36,81.1
+Hub Fès Saïss #0007,2025-09-26 12:00:00,4.05,82.59
+Hub Fès Saïss #0007,2025-09-29 18:00:00,5.91,73.91
+Hub Fès Saïss #0007,2025-10-08 12:00:00,3.95,84.05
+Hub Fès Saïss #0007,2025-10-09 06:00:00,6.56,87.71
+Hub Fès Saïss #0007,2025-10-28 06:00:00,4.27,82.52
+Hub Fès Saïss #0007,2025-11-05 00:00:00,5.2,85.54
+Hub Fès Saïss #0007,2025-11-18 00:00:00,2.13,86.81
+Hub Fès Saïss #0007,2025-11-18 06:00:00,5.02,81.78
+Hub Fès Saïss #0007,2025-11-23 06:00:00,4.02,87.8
+Hub Fès Saïss #0007,2025-11-25 18:00:00,2.49,84.99
+Hub Fès Saïss #0007,2025-11-27 18:00:00,2.38,89.55
+Hub Fès Saïss #0007,2025-12-04 00:00:00,3.54,82.77
+Hub Fès Saïss #0007,2025-12-19 18:00:00,3.11,83.99
+Hub Fès Saïss #0007,2025-12-20 12:00:00,2.44,80.99
+Hub Fès Saïss #0007,2025-12-26 00:00:00,0.15,79.81
+Hub Fès Saïss #0007,2025-12-28 00:00:00,2.44,79.33
+Zone Tanger Automotive #0008,2025-01-09 12:00:00,16.07,34.94
+Zone Tanger Automotive #0008,2025-01-11 12:00:00,19.27,42.6
+Zone Tanger Automotive #0008,2025-01-20 12:00:00,11.33,54.72
+Zone Tanger Automotive #0008,2025-01-31 18:00:00,21.62,24.38
+Zone Tanger Automotive #0008,2025-02-09 00:00:00,20.78,34.9
+Zone Tanger Automotive #0008,2025-02-15 18:00:00,21.95,52.41
+Zone Tanger Automotive #0008,2025-02-18 00:00:00,14.81,48.98
+Zone Tanger Automotive #0008,2025-02-18 18:00:00,13.27,47.77
+Zone Tanger Automotive #0008,2025-02-28 12:00:00,20.33,53.84
+Zone Tanger Automotive #0008,2025-03-10 12:00:00,16.9,47.34
+Zone Tanger Automotive #0008,2025-03-13 12:00:00,20.42,50.15
+Zone Tanger Automotive #0008,2025-03-19 12:00:00,26.62,47.94
+Zone Tanger Automotive #0008,2025-03-27 00:00:00,19.64,39.65
+Zone Tanger Automotive #0008,2025-04-10 12:00:00,17.64,45.95
+Zone Tanger Automotive #0008,2025-04-22 06:00:00,23.63,61.59
+Zone Tanger Automotive #0008,2025-04-22 12:00:00,18.41,47.88
+Zone Tanger Automotive #0008,2025-04-22 18:00:00,25.03,45.04
+Zone Tanger Automotive #0008,2025-04-26 18:00:00,13.65,45.48
+Zone Tanger Automotive #0008,2025-04-27 18:00:00,19.45,46.25
+Zone Tanger Automotive #0008,2025-04-28 06:00:00,24.22,31.37
+Zone Tanger Automotive #0008,2025-05-02 12:00:00,22.03,38.48
+Zone Tanger Automotive #0008,2025-05-08 00:00:00,23.11,48.19
+Zone Tanger Automotive #0008,2025-05-15 12:00:00,23.74,50.34
+Zone Tanger Automotive #0008,2025-05-22 12:00:00,21.81,40.65
+Zone Tanger Automotive #0008,2025-05-26 06:00:00,25.5,40.71
+Zone Tanger Automotive #0008,2025-06-06 18:00:00,22.29,44.79
+Zone Tanger Automotive #0008,2025-06-11 12:00:00,25.41,38.71
+Zone Tanger Automotive #0008,2025-06-15 06:00:00,29.84,57.17
+Zone Tanger Automotive #0008,2025-06-15 12:00:00,19.94,35.65
+Zone Tanger Automotive #0008,2025-06-16 00:00:00,24.4,46.2
+Zone Tanger Automotive #0008,2025-06-27 18:00:00,20.97,31.09
+Zone Tanger Automotive #0008,2025-06-30 06:00:00,23.54,58.42
+Zone Tanger Automotive #0008,2025-07-21 06:00:00,27.07,44.34
+Zone Tanger Automotive #0008,2025-08-23 06:00:00,20.18,48.45
+Zone Tanger Automotive #0008,2025-08-28 00:00:00,22.28,52.11
+Zone Tanger Automotive #0008,2025-08-29 06:00:00,24.73,38.04
+Zone Tanger Automotive #0008,2025-09-03 06:00:00,21.66,44.9
+Zone Tanger Automotive #0008,2025-09-04 06:00:00,24.51,41.19
+Zone Tanger Automotive #0008,2025-09-09 06:00:00,21.18,43.25
+Zone Tanger Automotive #0008,2025-09-09 18:00:00,22.6,36.68
+Zone Tanger Automotive #0008,2025-09-14 12:00:00,22.89,40.33
+Zone Tanger Automotive #0008,2025-10-10 06:00:00,26.31,50.08
+Zone Tanger Automotive #0008,2025-10-10 18:00:00,20.61,57.09
+Zone Tanger Automotive #0008,2025-10-19 06:00:00,17.9,39.54
+Zone Tanger Automotive #0008,2025-10-26 00:00:00,20.84,51.04
+Zone Tanger Automotive #0008,2025-11-01 06:00:00,31.44,49.32
+Zone Tanger Automotive #0008,2025-12-03 12:00:00,24.11,27.29
+Zone Tanger Automotive #0008,2025-12-05 06:00:00,22.53,58.11
+Zone Tanger Automotive #0008,2025-12-21 00:00:00,23.42,35.45
+Zone Tanger Automotive #0008,2025-12-28 00:00:00,23.89,58.08
+Plateforme Benguerir UM6P #0009,2025-01-02 18:00:00,7.29,56.15
+Plateforme Benguerir UM6P #0009,2025-01-24 00:00:00,8.48,48.25
+Plateforme Benguerir UM6P #0009,2025-02-11 06:00:00,9.44,59.96
+Plateforme Benguerir UM6P #0009,2025-02-14 18:00:00,6.0,75.62
+Plateforme Benguerir UM6P #0009,2025-02-19 18:00:00,2.81,61.58
+Plateforme Benguerir UM6P #0009,2025-02-20 12:00:00,13.17,52.59
+Plateforme Benguerir UM6P #0009,2025-02-28 18:00:00,8.98,46.46
+Plateforme Benguerir UM6P #0009,2025-03-08 00:00:00,11.92,55.23
+Plateforme Benguerir UM6P #0009,2025-03-08 18:00:00,10.87,59.71
+Plateforme Benguerir UM6P #0009,2025-03-14 00:00:00,11.24,65.25
+Plateforme Benguerir UM6P #0009,2025-03-24 18:00:00,19.11,59.91
+Plateforme Benguerir UM6P #0009,2025-03-25 12:00:00,10.16,61.54
+Plateforme Benguerir UM6P #0009,2025-03-26 18:00:00,13.8,66.85
+Plateforme Benguerir UM6P #0009,2025-04-01 12:00:00,8.27,56.19
+Plateforme Benguerir UM6P #0009,2025-04-02 12:00:00,12.09,60.51
+Plateforme Benguerir UM6P #0009,2025-04-02 18:00:00,13.82,55.27
+Plateforme Benguerir UM6P #0009,2025-04-05 12:00:00,16.05,67.01
+Plateforme Benguerir UM6P #0009,2025-04-07 00:00:00,15.23,56.15
+Plateforme Benguerir UM6P #0009,2025-04-24 18:00:00,8.7,53.02
+Plateforme Benguerir UM6P #0009,2025-05-09 06:00:00,14.19,65.68
+Plateforme Benguerir UM6P #0009,2025-05-17 00:00:00,9.33,66.75
+Plateforme Benguerir UM6P #0009,2025-05-26 18:00:00,12.25,65.54
+Plateforme Benguerir UM6P #0009,2025-06-09 18:00:00,11.56,68.66
+Plateforme Benguerir UM6P #0009,2025-06-25 12:00:00,13.1,63.86
+Plateforme Benguerir UM6P #0009,2025-06-30 18:00:00,16.14,64.37
+Plateforme Benguerir UM6P #0009,2025-07-02 18:00:00,15.56,62.24
+Plateforme Benguerir UM6P #0009,2025-07-04 18:00:00,9.86,45.27
+Plateforme Benguerir UM6P #0009,2025-07-10 12:00:00,14.33,59.02
+Plateforme Benguerir UM6P #0009,2025-07-10 18:00:00,16.43,54.49
+Plateforme Benguerir UM6P #0009,2025-07-24 18:00:00,14.97,58.84
+Plateforme Benguerir UM6P #0009,2025-07-25 06:00:00,13.9,55.79
+Plateforme Benguerir UM6P #0009,2025-08-07 12:00:00,15.71,63.7
+Plateforme Benguerir UM6P #0009,2025-08-20 06:00:00,9.72,64.49
+Plateforme Benguerir UM6P #0009,2025-08-21 12:00:00,13.77,58.08
+Plateforme Benguerir UM6P #0009,2025-09-27 06:00:00,13.48,58.71
+Plateforme Benguerir UM6P #0009,2025-10-04 00:00:00,5.37,54.3
+Plateforme Benguerir UM6P #0009,2025-10-05 00:00:00,6.55,49.87
+Plateforme Benguerir UM6P #0009,2025-10-18 00:00:00,12.67,57.48
+Plateforme Benguerir UM6P #0009,2025-10-22 06:00:00,8.05,54.83
+Plateforme Benguerir UM6P #0009,2025-10-24 06:00:00,6.0,64.58
+Plateforme Benguerir UM6P #0009,2025-10-25 18:00:00,13.67,64.25
+Plateforme Benguerir UM6P #0009,2025-10-26 00:00:00,11.6,66.38
+Plateforme Benguerir UM6P #0009,2025-11-04 18:00:00,8.27,60.54
+Plateforme Benguerir UM6P #0009,2025-11-07 12:00:00,7.14,62.18
+Plateforme Benguerir UM6P #0009,2025-11-11 12:00:00,10.59,59.66
+Plateforme Benguerir UM6P #0009,2025-11-18 00:00:00,12.42,62.65
+Plateforme Benguerir UM6P #0009,2025-11-28 18:00:00,16.55,47.18
+Plateforme Benguerir UM6P #0009,2025-12-02 00:00:00,10.73,56.63
+Plateforme Benguerir UM6P #0009,2025-12-21 18:00:00,11.5,58.01
+Plateforme Benguerir UM6P #0009,2025-12-24 00:00:00,6.74,66.92
+Entrepôt Rabat Salé #0010,2025-01-01 06:00:00,-1.31,82.67
+Entrepôt Rabat Salé #0010,2025-01-02 06:00:00,1.51,85.74
+Entrepôt Rabat Salé #0010,2025-01-03 00:00:00,4.41,85.09
+Entrepôt Rabat Salé #0010,2025-01-12 00:00:00,1.01,82.04
+Entrepôt Rabat Salé #0010,2025-01-14 06:00:00,1.58,79.12
+Entrepôt Rabat Salé #0010,2025-01-24 18:00:00,2.72,83.48
+Entrepôt Rabat Salé #0010,2025-01-27 00:00:00,0.4,85.22
+Entrepôt Rabat Salé #0010,2025-02-10 06:00:00,1.93,83.25
+Entrepôt Rabat Salé #0010,2025-02-10 18:00:00,2.34,88.07
+Entrepôt Rabat Salé #0010,2025-02-18 12:00:00,3.53,78.37
+Entrepôt Rabat Salé #0010,2025-02-24 18:00:00,1.65,79.22
+Entrepôt Rabat Salé #0010,2025-03-04 12:00:00,4.08,84.91
+Entrepôt Rabat Salé #0010,2025-03-05 12:00:00,0.94,81.12
+Entrepôt Rabat Salé #0010,2025-03-17 12:00:00,3.81,83.49
+Entrepôt Rabat Salé #0010,2025-03-19 06:00:00,2.13,87.51
+Entrepôt Rabat Salé #0010,2025-03-20 06:00:00,3.64,74.25
+Entrepôt Rabat Salé #0010,2025-03-24 00:00:00,2.2,89.61
+Entrepôt Rabat Salé #0010,2025-04-22 06:00:00,0.68,83.71
+Entrepôt Rabat Salé #0010,2025-04-23 06:00:00,5.16,79.8
+Entrepôt Rabat Salé #0010,2025-04-24 00:00:00,-0.04,84.74
+Entrepôt Rabat Salé #0010,2025-04-30 12:00:00,3.32,86.14
+Entrepôt Rabat Salé #0010,2025-04-30 18:00:00,5.16,81.7
+Entrepôt Rabat Salé #0010,2025-05-03 12:00:00,4.78,75.89
+Entrepôt Rabat Salé #0010,2025-05-30 00:00:00,7.41,84.9
+Entrepôt Rabat Salé #0010,2025-06-08 06:00:00,6.35,71.95
+Entrepôt Rabat Salé #0010,2025-06-24 06:00:00,6.13,77.23
+Entrepôt Rabat Salé #0010,2025-07-12 12:00:00,6.52,80.85
+Entrepôt Rabat Salé #0010,2025-07-19 12:00:00,6.81,84.93
+Entrepôt Rabat Salé #0010,2025-07-21 06:00:00,8.24,88.35
+Entrepôt Rabat Salé #0010,2025-07-23 18:00:00,7.3,80.18
+Entrepôt Rabat Salé #0010,2025-07-30 18:00:00,6.19,77.51
+Entrepôt Rabat Salé #0010,2025-07-31 18:00:00,6.39,81.9
+Entrepôt Rabat Salé #0010,2025-08-03 00:00:00,7.28,86.96
+Entrepôt Rabat Salé #0010,2025-08-05 06:00:00,7.06,84.53
+Entrepôt Rabat Salé #0010,2025-08-08 00:00:00,13.370000000000001,80.57
+Entrepôt Rabat Salé #0010,2025-08-10 12:00:00,4.59,74.81
+Entrepôt Rabat Salé #0010,2025-08-16 12:00:00,7.22,84.8
+Entrepôt Rabat Salé #0010,2025-08-24 00:00:00,4.94,85.15
+Entrepôt Rabat Salé #0010,2025-09-12 12:00:00,4.09,79.33
+Entrepôt Rabat Salé #0010,2025-10-08 18:00:00,4.31,79.76
+Entrepôt Rabat Salé #0010,2025-10-24 18:00:00,2.05,83.73
+Entrepôt Rabat Salé #0010,2025-10-29 12:00:00,4.7,82.09
+Entrepôt Rabat Salé #0010,2025-11-01 00:00:00,3.31,84.64
+Entrepôt Rabat Salé #0010,2025-11-08 00:00:00,4.76,85.6
+Entrepôt Rabat Salé #0010,2025-11-13 00:00:00,4.42,87.17
+Entrepôt Rabat Salé #0010,2025-11-17 06:00:00,3.15,78.3
+Entrepôt Rabat Salé #0010,2025-11-26 12:00:00,3.15,89.27
+Entrepôt Rabat Salé #0010,2025-11-27 18:00:00,3.97,81.2
+Entrepôt Rabat Salé #0010,2025-12-02 12:00:00,2.3,83.29
+Entrepôt Rabat Salé #0010,2025-12-05 06:00:00,3.15,76.29
+Plateforme Ouarzazate Solar #0011,2025-01-04 06:00:00,3.06,79.47
+Plateforme Ouarzazate Solar #0011,2025-01-11 06:00:00,0.48,83.06
+Plateforme Ouarzazate Solar #0011,2025-02-18 00:00:00,2.56,79.04
+Plateforme Ouarzazate Solar #0011,2025-02-19 18:00:00,2.89,75.98
+Plateforme Ouarzazate Solar #0011,2025-03-01 12:00:00,1.54,80.44
+Plateforme Ouarzazate Solar #0011,2025-03-04 18:00:00,2.46,83.96
+Plateforme Ouarzazate Solar #0011,2025-03-13 18:00:00,2.28,84.07
+Plateforme Ouarzazate Solar #0011,2025-03-30 12:00:00,5.21,84.74
+Plateforme Ouarzazate Solar #0011,2025-04-03 00:00:00,3.16,84.53
+Plateforme Ouarzazate Solar #0011,2025-04-11 00:00:00,4.23,82.52
+Plateforme Ouarzazate Solar #0011,2025-04-13 00:00:00,3.03,83.55
+Plateforme Ouarzazate Solar #0011,2025-04-20 18:00:00,4.28,80.92
+Plateforme Ouarzazate Solar #0011,2025-04-26 00:00:00,5.54,83.07
+Plateforme Ouarzazate Solar #0011,2025-05-05 00:00:00,4.31,89.85
+Plateforme Ouarzazate Solar #0011,2025-05-23 00:00:00,4.29,89.79
+Plateforme Ouarzazate Solar #0011,2025-05-29 12:00:00,4.43,72.36
+Plateforme Ouarzazate Solar #0011,2025-06-12 12:00:00,4.83,88.81
+Plateforme Ouarzazate Solar #0011,2025-06-15 06:00:00,8.45,81.71
+Plateforme Ouarzazate Solar #0011,2025-07-03 12:00:00,7.14,76.81
+Plateforme Ouarzazate Solar #0011,2025-07-10 00:00:00,5.97,81.04
+Plateforme Ouarzazate Solar #0011,2025-07-13 18:00:00,6.42,80.41
+Plateforme Ouarzazate Solar #0011,2025-07-14 00:00:00,7.52,83.2
+Plateforme Ouarzazate Solar #0011,2025-07-26 06:00:00,6.45,80.9
+Plateforme Ouarzazate Solar #0011,2025-08-01 00:00:00,9.91,87.05
+Plateforme Ouarzazate Solar #0011,2025-08-07 00:00:00,5.85,83.35
+Plateforme Ouarzazate Solar #0011,2025-08-09 06:00:00,3.57,88.67
+Plateforme Ouarzazate Solar #0011,2025-08-23 00:00:00,6.67,85.6
+Plateforme Ouarzazate Solar #0011,2025-08-24 00:00:00,3.88,84.19
+Plateforme Ouarzazate Solar #0011,2025-08-28 00:00:00,5.8,84.62
+Plateforme Ouarzazate Solar #0011,2025-08-29 12:00:00,6.09,81.52
+Plateforme Ouarzazate Solar #0011,2025-09-02 18:00:00,5.58,79.73
+Plateforme Ouarzazate Solar #0011,2025-09-05 18:00:00,6.1,80.47
+Plateforme Ouarzazate Solar #0011,2025-09-11 12:00:00,5.67,86.54
+Plateforme Ouarzazate Solar #0011,2025-09-16 00:00:00,5.87,84.21
+Plateforme Ouarzazate Solar #0011,2025-09-21 12:00:00,5.54,83.93
+Plateforme Ouarzazate Solar #0011,2025-09-25 00:00:00,4.64,82.3
+Plateforme Ouarzazate Solar #0011,2025-09-25 12:00:00,5.81,81.42
+Plateforme Ouarzazate Solar #0011,2025-09-30 18:00:00,5.0,77.13
+Plateforme Ouarzazate Solar #0011,2025-10-04 06:00:00,6.28,82.55
+Plateforme Ouarzazate Solar #0011,2025-10-04 12:00:00,4.16,83.69
+Plateforme Ouarzazate Solar #0011,2025-10-11 00:00:00,3.69,85.66
+Plateforme Ouarzazate Solar #0011,2025-11-06 00:00:00,4.86,82.18
+Plateforme Ouarzazate Solar #0011,2025-11-06 18:00:00,3.21,80.9
+Plateforme Ouarzazate Solar #0011,2025-11-18 12:00:00,1.66,81.27
+Plateforme Ouarzazate Solar #0011,2025-12-01 18:00:00,3.18,76.44
+Plateforme Ouarzazate Solar #0011,2025-12-04 06:00:00,1.4,83.98
+Plateforme Ouarzazate Solar #0011,2025-12-08 18:00:00,3.08,75.83
+Plateforme Ouarzazate Solar #0011,2025-12-11 18:00:00,1.7,81.1
+Plateforme Ouarzazate Solar #0011,2025-12-12 00:00:00,4.38,80.15
+Plateforme Ouarzazate Solar #0011,2025-12-26 18:00:00,1.22,80.99
+Hub Casablanca Sud #0012,2025-01-07 18:00:00,11.91,56.97
+Hub Casablanca Sud #0012,2025-01-10 06:00:00,10.05,69.95
+Hub Casablanca Sud #0012,2025-01-11 18:00:00,17.83,57.01
+Hub Casablanca Sud #0012,2025-01-25 18:00:00,8.61,61.17
+Hub Casablanca Sud #0012,2025-02-06 18:00:00,8.95,68.06
+Hub Casablanca Sud #0012,2025-02-07 18:00:00,10.24,59.99
+Hub Casablanca Sud #0012,2025-02-26 00:00:00,7.86,55.24
+Hub Casablanca Sud #0012,2025-03-03 00:00:00,6.61,53.52
+Hub Casablanca Sud #0012,2025-03-03 06:00:00,12.69,51.87
+Hub Casablanca Sud #0012,2025-03-14 12:00:00,10.43,68.58
+Hub Casablanca Sud #0012,2025-03-18 18:00:00,7.68,58.98
+Hub Casablanca Sud #0012,2025-03-22 06:00:00,14.22,63.82
+Hub Casablanca Sud #0012,2025-03-27 12:00:00,13.05,58.75
+Hub Casablanca Sud #0012,2025-04-11 00:00:00,8.04,65.32
+Hub Casablanca Sud #0012,2025-04-26 00:00:00,8.41,61.62
+Hub Casablanca Sud #0012,2025-05-05 06:00:00,10.18,62.14
+Hub Casablanca Sud #0012,2025-05-19 12:00:00,9.05,65.22
+Hub Casablanca Sud #0012,2025-05-21 12:00:00,11.81,68.35
+Hub Casablanca Sud #0012,2025-05-24 00:00:00,14.36,53.03
+Hub Casablanca Sud #0012,2025-05-26 00:00:00,12.82,64.68
+Hub Casablanca Sud #0012,2025-05-30 06:00:00,14.41,54.15
+Hub Casablanca Sud #0012,2025-06-01 18:00:00,7.47,44.86
+Hub Casablanca Sud #0012,2025-06-10 06:00:00,14.26,50.39
+Hub Casablanca Sud #0012,2025-06-27 18:00:00,17.87,54.78
+Hub Casablanca Sud #0012,2025-07-04 00:00:00,9.26,65.13
+Hub Casablanca Sud #0012,2025-07-04 12:00:00,15.4,66.93
+Hub Casablanca Sud #0012,2025-07-07 06:00:00,12.78,63.24
+Hub Casablanca Sud #0012,2025-07-08 18:00:00,13.57,59.08
+Hub Casablanca Sud #0012,2025-07-21 18:00:00,14.74,54.61
+Hub Casablanca Sud #0012,2025-07-22 00:00:00,14.3,56.24
+Hub Casablanca Sud #0012,2025-07-26 12:00:00,11.51,61.31
+Hub Casablanca Sud #0012,2025-08-13 06:00:00,8.02,54.72
+Hub Casablanca Sud #0012,2025-08-14 18:00:00,17.71,48.54
+Hub Casablanca Sud #0012,2025-08-28 12:00:00,15.32,47.4
+Hub Casablanca Sud #0012,2025-09-18 12:00:00,8.87,62.43
+Hub Casablanca Sud #0012,2025-09-26 12:00:00,12.94,58.94
+Hub Casablanca Sud #0012,2025-10-01 00:00:00,14.66,49.84
+Hub Casablanca Sud #0012,2025-10-02 00:00:00,10.15,60.74
+Hub Casablanca Sud #0012,2025-10-14 18:00:00,10.91,56.44
+Hub Casablanca Sud #0012,2025-11-02 00:00:00,7.57,59.72
+Hub Casablanca Sud #0012,2025-11-05 18:00:00,9.48,57.72
+Hub Casablanca Sud #0012,2025-11-08 00:00:00,13.69,56.09
+Hub Casablanca Sud #0012,2025-11-15 18:00:00,9.73,62.06
+Hub Casablanca Sud #0012,2025-11-18 18:00:00,11.79,58.52
+Hub Casablanca Sud #0012,2025-11-30 12:00:00,12.97,65.08
+Hub Casablanca Sud #0012,2025-12-09 18:00:00,8.92,66.49
+Hub Casablanca Sud #0012,2025-12-16 00:00:00,10.43,54.28
+Hub Casablanca Sud #0012,2025-12-28 00:00:00,10.78,57.32
+Hub Casablanca Sud #0012,2025-12-28 12:00:00,13.19,56.49
+Hub Casablanca Sud #0012,2025-12-31 00:00:00,3.37,50.42
+Entrepôt Youssoufia #0013,2025-01-05 12:00:00,22.4,51.31
+Entrepôt Youssoufia #0013,2025-01-19 18:00:00,18.53,52.63
+Entrepôt Youssoufia #0013,2025-01-20 12:00:00,14.24,32.61
+Entrepôt Youssoufia #0013,2025-02-12 12:00:00,14.89,47.78
+Entrepôt Youssoufia #0013,2025-02-16 12:00:00,18.16,39.78
+Entrepôt Youssoufia #0013,2025-02-25 00:00:00,16.77,43.75
+Entrepôt Youssoufia #0013,2025-03-09 18:00:00,17.5,39.39
+Entrepôt Youssoufia #0013,2025-03-15 06:00:00,21.74,36.92
+Entrepôt Youssoufia #0013,2025-03-19 00:00:00,23.9,48.66
+Entrepôt Youssoufia #0013,2025-03-24 00:00:00,24.03,61.13
+Entrepôt Youssoufia #0013,2025-03-24 06:00:00,21.04,53.77
+Entrepôt Youssoufia #0013,2025-04-02 06:00:00,26.36,45.86
+Entrepôt Youssoufia #0013,2025-04-03 12:00:00,24.57,49.84
+Entrepôt Youssoufia #0013,2025-04-03 18:00:00,15.06,45.15
+Entrepôt Youssoufia #0013,2025-04-17 00:00:00,22.56,40.54
+Entrepôt Youssoufia #0013,2025-04-22 06:00:00,23.09,35.56
+Entrepôt Youssoufia #0013,2025-04-24 12:00:00,19.31,53.23
+Entrepôt Youssoufia #0013,2025-04-24 18:00:00,25.3,51.7
+Entrepôt Youssoufia #0013,2025-04-25 06:00:00,13.92,48.29
+Entrepôt Youssoufia #0013,2025-04-28 06:00:00,24.05,47.67
+Entrepôt Youssoufia #0013,2025-05-15 06:00:00,18.01,51.84
+Entrepôt Youssoufia #0013,2025-05-17 00:00:00,19.52,34.58
+Entrepôt Youssoufia #0013,2025-05-21 18:00:00,22.39,47.66
+Entrepôt Youssoufia #0013,2025-05-22 00:00:00,24.78,33.6
+Entrepôt Youssoufia #0013,2025-05-24 18:00:00,28.33,44.59
+Entrepôt Youssoufia #0013,2025-06-09 00:00:00,22.17,35.71
+Entrepôt Youssoufia #0013,2025-06-16 00:00:00,24.58,46.92
+Entrepôt Youssoufia #0013,2025-06-29 00:00:00,21.82,47.12
+Entrepôt Youssoufia #0013,2025-06-30 12:00:00,18.58,45.87
+Entrepôt Youssoufia #0013,2025-07-10 12:00:00,21.27,37.65
+Entrepôt Youssoufia #0013,2025-07-16 18:00:00,25.33,53.69
+Entrepôt Youssoufia #0013,2025-08-03 12:00:00,25.66,55.6
+Entrepôt Youssoufia #0013,2025-08-08 18:00:00,24.43,55.41
+Entrepôt Youssoufia #0013,2025-08-22 12:00:00,25.86,51.1
+Entrepôt Youssoufia #0013,2025-09-25 06:00:00,22.16,36.16
+Entrepôt Youssoufia #0013,2025-09-28 06:00:00,22.49,58.22
+Entrepôt Youssoufia #0013,2025-09-30 00:00:00,18.59,43.42
+Entrepôt Youssoufia #0013,2025-10-10 06:00:00,18.48,54.41
+Entrepôt Youssoufia #0013,2025-10-26 12:00:00,19.04,49.13
+Entrepôt Youssoufia #0013,2025-10-28 12:00:00,20.65,61.61
+Entrepôt Youssoufia #0013,2025-11-03 18:00:00,22.71,35.35
+Entrepôt Youssoufia #0013,2025-11-14 06:00:00,20.89,38.93
+Entrepôt Youssoufia #0013,2025-11-21 18:00:00,16.97,51.35
+Entrepôt Youssoufia #0013,2025-11-22 06:00:00,23.38,55.15
+Entrepôt Youssoufia #0013,2025-11-23 18:00:00,21.98,47.8
+Entrepôt Youssoufia #0013,2025-11-26 00:00:00,20.83,42.13
+Entrepôt Youssoufia #0013,2025-11-29 12:00:00,21.64,50.33
+Entrepôt Youssoufia #0013,2025-12-10 18:00:00,19.38,50.94
+Entrepôt Youssoufia #0013,2025-12-14 00:00:00,22.17,44.75
+Entrepôt Youssoufia #0013,2025-12-31 12:00:00,21.63,53.36
+Zone Mohammedia #0014,2025-01-07 12:00:00,17.56,37.95
+Zone Mohammedia #0014,2025-01-13 06:00:00,23.56,39.57
+Zone Mohammedia #0014,2025-01-16 00:00:00,21.01,54.05
+Zone Mohammedia #0014,2025-01-17 12:00:00,19.58,39.46
+Zone Mohammedia #0014,2025-01-18 06:00:00,16.93,48.86
+Zone Mohammedia #0014,2025-02-12 06:00:00,15.76,48.39
+Zone Mohammedia #0014,2025-02-17 00:00:00,16.23,46.75
+Zone Mohammedia #0014,2025-03-03 00:00:00,19.23,36.42
+Zone Mohammedia #0014,2025-03-11 18:00:00,20.99,45.15
+Zone Mohammedia #0014,2025-03-14 06:00:00,16.35,33.53
+Zone Mohammedia #0014,2025-03-20 12:00:00,20.76,43.77
+Zone Mohammedia #0014,2025-03-29 18:00:00,20.03,49.6
+Zone Mohammedia #0014,2025-04-01 18:00:00,20.55,36.7
+Zone Mohammedia #0014,2025-04-03 06:00:00,23.02,36.13
+Zone Mohammedia #0014,2025-04-10 06:00:00,19.35,38.0
+Zone Mohammedia #0014,2025-04-15 18:00:00,15.26,49.99
+Zone Mohammedia #0014,2025-04-26 06:00:00,24.51,51.3
+Zone Mohammedia #0014,2025-04-27 18:00:00,23.32,50.17
+Zone Mohammedia #0014,2025-04-28 18:00:00,25.16,39.38
+Zone Mohammedia #0014,2025-05-10 00:00:00,20.67,46.21
+Zone Mohammedia #0014,2025-05-18 18:00:00,26.64,49.72
+Zone Mohammedia #0014,2025-05-21 12:00:00,24.29,40.54
+Zone Mohammedia #0014,2025-05-23 12:00:00,21.4,34.61
+Zone Mohammedia #0014,2025-06-01 06:00:00,32.71,58.08
+Zone Mohammedia #0014,2025-06-03 06:00:00,28.29,44.82
+Zone Mohammedia #0014,2025-06-07 18:00:00,25.17,37.74
+Zone Mohammedia #0014,2025-06-14 00:00:00,32.16,51.96
+Zone Mohammedia #0014,2025-07-06 06:00:00,24.47,38.19
+Zone Mohammedia #0014,2025-07-07 06:00:00,31.92,50.94
+Zone Mohammedia #0014,2025-07-17 06:00:00,26.26,42.52
+Zone Mohammedia #0014,2025-08-15 18:00:00,26.87,39.92
+Zone Mohammedia #0014,2025-08-21 18:00:00,23.96,45.28
+Zone Mohammedia #0014,2025-08-27 00:00:00,24.71,46.45
+Zone Mohammedia #0014,2025-09-02 12:00:00,24.01,47.54
+Zone Mohammedia #0014,2025-09-08 12:00:00,26.66,46.78
+Zone Mohammedia #0014,2025-09-10 06:00:00,24.12,36.21
+Zone Mohammedia #0014,2025-09-18 18:00:00,22.15,42.03
+Zone Mohammedia #0014,2025-09-21 06:00:00,16.62,56.43
+Zone Mohammedia #0014,2025-09-22 12:00:00,20.06,35.63
+Zone Mohammedia #0014,2025-10-12 06:00:00,19.43,36.18
+Zone Mohammedia #0014,2025-10-17 00:00:00,19.44,49.93
+Zone Mohammedia #0014,2025-10-23 06:00:00,23.69,37.28
+Zone Mohammedia #0014,2025-10-23 18:00:00,19.53,50.13
+Zone Mohammedia #0014,2025-10-25 00:00:00,22.93,53.84
+Zone Mohammedia #0014,2025-11-01 00:00:00,20.63,38.66
+Zone Mohammedia #0014,2025-11-10 00:00:00,19.89,37.51
+Zone Mohammedia #0014,2025-11-12 18:00:00,17.57,55.95
+Zone Mohammedia #0014,2025-11-26 18:00:00,24.25,51.58
+Zone Mohammedia #0014,2025-12-05 06:00:00,22.08,44.93
+Zone Mohammedia #0014,2025-12-29 18:00:00,20.05,39.55
+Hub Tétouan #0015,2025-01-25 00:00:00,9.55,53.2
+Hub Tétouan #0015,2025-01-29 00:00:00,17.729999999999997,63.08
+Hub Tétouan #0015,2025-01-30 12:00:00,12.2,66.52
+Hub Tétouan #0015,2025-02-05 06:00:00,9.93,58.6
+Hub Tétouan #0015,2025-02-09 12:00:00,7.36,55.3
+Hub Tétouan #0015,2025-02-14 06:00:00,8.05,63.24
+Hub Tétouan #0015,2025-02-19 12:00:00,15.54,50.32
+Hub Tétouan #0015,2025-03-03 00:00:00,10.71,69.25
+Hub Tétouan #0015,2025-03-17 00:00:00,16.19,52.09
+Hub Tétouan #0015,2025-03-17 12:00:00,12.5,65.72
+Hub Tétouan #0015,2025-04-06 00:00:00,14.74,54.28
+Hub Tétouan #0015,2025-04-06 18:00:00,6.86,58.03
+Hub Tétouan #0015,2025-04-13 06:00:00,20.45,64.15
+Hub Tétouan #0015,2025-04-14 06:00:00,11.15,66.4
+Hub Tétouan #0015,2025-04-15 00:00:00,14.04,45.22
+Hub Tétouan #0015,2025-04-23 06:00:00,15.33,70.79
+Hub Tétouan #0015,2025-04-26 00:00:00,19.01,60.64
+Hub Tétouan #0015,2025-05-09 00:00:00,11.93,60.48
+Hub Tétouan #0015,2025-05-09 06:00:00,13.38,66.9
+Hub Tétouan #0015,2025-05-10 00:00:00,12.45,62.77
+Hub Tétouan #0015,2025-05-29 12:00:00,15.7,66.02
+Hub Tétouan #0015,2025-06-02 00:00:00,20.98,58.19
+Hub Tétouan #0015,2025-06-14 00:00:00,10.79,45.5
+Hub Tétouan #0015,2025-06-15 06:00:00,10.56,51.34
+Hub Tétouan #0015,2025-06-20 00:00:00,15.69,64.53
+Hub Tétouan #0015,2025-06-24 18:00:00,17.06,60.2
+Hub Tétouan #0015,2025-07-06 12:00:00,9.7,58.68
+Hub Tétouan #0015,2025-07-12 12:00:00,17.11,57.25
+Hub Tétouan #0015,2025-07-17 18:00:00,9.22,54.88
+Hub Tétouan #0015,2025-07-22 00:00:00,18.52,66.1
+Hub Tétouan #0015,2025-07-23 18:00:00,11.86,49.98
+Hub Tétouan #0015,2025-07-26 12:00:00,15.17,54.57
+Hub Tétouan #0015,2025-08-05 06:00:00,21.63,57.16
+Hub Tétouan #0015,2025-08-19 18:00:00,13.35,64.87
+Hub Tétouan #0015,2025-08-21 00:00:00,18.45,52.05
+Hub Tétouan #0015,2025-09-13 00:00:00,10.32,66.78
+Hub Tétouan #0015,2025-09-14 00:00:00,14.6,63.54
+Hub Tétouan #0015,2025-09-21 06:00:00,12.21,62.97
+Hub Tétouan #0015,2025-10-05 00:00:00,11.04,55.47
+Hub Tétouan #0015,2025-10-29 00:00:00,8.15,64.02
+Hub Tétouan #0015,2025-10-31 12:00:00,11.36,49.53
+Hub Tétouan #0015,2025-11-01 06:00:00,8.79,52.83
+Hub Tétouan #0015,2025-11-13 18:00:00,6.04,55.29
+Hub Tétouan #0015,2025-11-20 00:00:00,6.24,49.47
+Hub Tétouan #0015,2025-11-22 00:00:00,9.92,55.2
+Hub Tétouan #0015,2025-12-04 18:00:00,9.24,64.19
+Hub Tétouan #0015,2025-12-12 12:00:00,7.58,56.23
+Hub Tétouan #0015,2025-12-13 12:00:00,15.12,58.26
+Hub Tétouan #0015,2025-12-28 18:00:00,8.79,62.28
+Hub Tétouan #0015,2025-12-31 00:00:00,11.6,54.0
+Zone Agadir Ait Melloul #0016,2025-01-01 12:00:00,17.85,32.91
+Zone Agadir Ait Melloul #0016,2025-01-04 00:00:00,20.76,42.51
+Zone Agadir Ait Melloul #0016,2025-01-11 06:00:00,22.52,42.87
+Zone Agadir Ait Melloul #0016,2025-01-12 06:00:00,14.34,29.2
+Zone Agadir Ait Melloul #0016,2025-01-13 00:00:00,21.19,50.08
+Zone Agadir Ait Melloul #0016,2025-01-19 18:00:00,23.58,59.28
+Zone Agadir Ait Melloul #0016,2025-01-21 00:00:00,20.81,46.09
+Zone Agadir Ait Melloul #0016,2025-02-02 00:00:00,18.87,47.01
+Zone Agadir Ait Melloul #0016,2025-02-14 06:00:00,17.53,49.26
+Zone Agadir Ait Melloul #0016,2025-02-19 18:00:00,24.47,26.63
+Zone Agadir Ait Melloul #0016,2025-03-01 12:00:00,20.93,31.03
+Zone Agadir Ait Melloul #0016,2025-03-07 06:00:00,25.7,50.87
+Zone Agadir Ait Melloul #0016,2025-03-08 00:00:00,19.24,47.87
+Zone Agadir Ait Melloul #0016,2025-03-17 12:00:00,28.43,45.88
+Zone Agadir Ait Melloul #0016,2025-03-24 00:00:00,18.98,56.15
+Zone Agadir Ait Melloul #0016,2025-04-06 12:00:00,14.83,58.4
+Zone Agadir Ait Melloul #0016,2025-04-13 00:00:00,22.68,40.44
+Zone Agadir Ait Melloul #0016,2025-04-23 12:00:00,21.09,34.0
+Zone Agadir Ait Melloul #0016,2025-04-27 00:00:00,18.12,35.28
+Zone Agadir Ait Melloul #0016,2025-04-29 18:00:00,26.47,36.04
+Zone Agadir Ait Melloul #0016,2025-05-10 00:00:00,19.72,43.27
+Zone Agadir Ait Melloul #0016,2025-05-10 06:00:00,25.44,39.62
+Zone Agadir Ait Melloul #0016,2025-05-11 06:00:00,25.89,39.09
+Zone Agadir Ait Melloul #0016,2025-05-11 12:00:00,22.57,30.8
+Zone Agadir Ait Melloul #0016,2025-05-13 18:00:00,23.68,51.73
+Zone Agadir Ait Melloul #0016,2025-05-21 00:00:00,24.68,54.67
+Zone Agadir Ait Melloul #0016,2025-05-30 06:00:00,23.2,44.27
+Zone Agadir Ait Melloul #0016,2025-06-17 00:00:00,24.4,48.19
+Zone Agadir Ait Melloul #0016,2025-07-05 06:00:00,22.72,35.16
+Zone Agadir Ait Melloul #0016,2025-07-12 12:00:00,25.31,43.49
+Zone Agadir Ait Melloul #0016,2025-07-15 00:00:00,23.67,43.74
+Zone Agadir Ait Melloul #0016,2025-07-22 00:00:00,23.51,53.64
+Zone Agadir Ait Melloul #0016,2025-07-30 18:00:00,25.71,47.45
+Zone Agadir Ait Melloul #0016,2025-08-06 18:00:00,27.71,46.44
+Zone Agadir Ait Melloul #0016,2025-09-06 00:00:00,28.04,30.92
+Zone Agadir Ait Melloul #0016,2025-09-08 00:00:00,23.34,51.13
+Zone Agadir Ait Melloul #0016,2025-09-10 12:00:00,22.62,52.73
+Zone Agadir Ait Melloul #0016,2025-09-13 06:00:00,24.32,44.28
+Zone Agadir Ait Melloul #0016,2025-09-15 00:00:00,22.74,55.51
+Zone Agadir Ait Melloul #0016,2025-10-03 12:00:00,26.55,35.05
+Zone Agadir Ait Melloul #0016,2025-10-18 06:00:00,23.92,42.08
+Zone Agadir Ait Melloul #0016,2025-10-21 00:00:00,21.99,69.65
+Zone Agadir Ait Melloul #0016,2025-10-29 18:00:00,23.74,39.65
+Zone Agadir Ait Melloul #0016,2025-11-02 00:00:00,20.34,41.37
+Zone Agadir Ait Melloul #0016,2025-11-29 00:00:00,18.63,44.67
+Zone Agadir Ait Melloul #0016,2025-11-29 06:00:00,19.2,55.44
+Zone Agadir Ait Melloul #0016,2025-11-30 12:00:00,20.12,41.28
+Zone Agadir Ait Melloul #0016,2025-12-10 12:00:00,32.96,45.49
+Zone Agadir Ait Melloul #0016,2025-12-11 18:00:00,22.71,44.55
+Zone Agadir Ait Melloul #0016,2025-12-12 06:00:00,21.11,51.96
+Zone Kénitra Atlantic #0017,2025-01-05 12:00:00,1.45,79.41
+Zone Kénitra Atlantic #0017,2025-01-10 00:00:00,2.83,80.5
+Zone Kénitra Atlantic #0017,2025-01-14 06:00:00,3.72,81.57
+Zone Kénitra Atlantic #0017,2025-01-23 12:00:00,2.05,83.7
+Zone Kénitra Atlantic #0017,2025-01-24 06:00:00,1.9,84.5
+Zone Kénitra Atlantic #0017,2025-02-10 12:00:00,2.9,81.89
+Zone Kénitra Atlantic #0017,2025-02-12 18:00:00,4.07,85.6
+Zone Kénitra Atlantic #0017,2025-02-25 18:00:00,1.86,79.99
+Zone Kénitra Atlantic #0017,2025-03-07 18:00:00,2.14,81.83
+Zone Kénitra Atlantic #0017,2025-03-23 00:00:00,2.04,77.55
+Zone Kénitra Atlantic #0017,2025-03-26 06:00:00,3.94,81.64
+Zone Kénitra Atlantic #0017,2025-03-30 18:00:00,2.93,86.23
+Zone Kénitra Atlantic #0017,2025-04-18 06:00:00,4.12,84.82
+Zone Kénitra Atlantic #0017,2025-04-24 00:00:00,5.58,79.48
+Zone Kénitra Atlantic #0017,2025-05-01 18:00:00,3.28,82.98
+Zone Kénitra Atlantic #0017,2025-05-08 06:00:00,5.05,78.71
+Zone Kénitra Atlantic #0017,2025-05-15 06:00:00,6.13,79.02
+Zone Kénitra Atlantic #0017,2025-05-26 06:00:00,4.0,90.58
+Zone Kénitra Atlantic #0017,2025-05-31 18:00:00,5.37,88.28
+Zone Kénitra Atlantic #0017,2025-06-08 00:00:00,5.99,87.85
+Zone Kénitra Atlantic #0017,2025-06-10 06:00:00,6.47,90.96
+Zone Kénitra Atlantic #0017,2025-06-25 18:00:00,4.4,86.59
+Zone Kénitra Atlantic #0017,2025-06-29 06:00:00,5.04,75.16
+Zone Kénitra Atlantic #0017,2025-07-18 06:00:00,5.7,74.89
+Zone Kénitra Atlantic #0017,2025-07-29 00:00:00,6.43,85.59
+Zone Kénitra Atlantic #0017,2025-08-04 18:00:00,7.08,79.41
+Zone Kénitra Atlantic #0017,2025-08-07 12:00:00,6.52,80.44
+Zone Kénitra Atlantic #0017,2025-08-08 18:00:00,6.17,82.57
+Zone Kénitra Atlantic #0017,2025-08-24 00:00:00,7.17,77.02
+Zone Kénitra Atlantic #0017,2025-08-24 06:00:00,5.81,82.09
+Zone Kénitra Atlantic #0017,2025-08-24 18:00:00,4.52,83.07
+Zone Kénitra Atlantic #0017,2025-08-26 18:00:00,5.84,81.93
+Zone Kénitra Atlantic #0017,2025-09-12 00:00:00,5.93,80.75
+Zone Kénitra Atlantic #0017,2025-09-28 12:00:00,4.59,79.86
+Zone Kénitra Atlantic #0017,2025-10-04 18:00:00,5.81,78.2
+Zone Kénitra Atlantic #0017,2025-10-09 18:00:00,3.11,81.13
+Zone Kénitra Atlantic #0017,2025-10-15 12:00:00,1.72,80.56
+Zone Kénitra Atlantic #0017,2025-10-23 06:00:00,4.44,84.53
+Zone Kénitra Atlantic #0017,2025-10-24 06:00:00,1.21,79.17
+Zone Kénitra Atlantic #0017,2025-11-03 12:00:00,2.9,78.59
+Zone Kénitra Atlantic #0017,2025-11-08 00:00:00,2.74,78.5
+Zone Kénitra Atlantic #0017,2025-11-08 12:00:00,2.4,79.54
+Zone Kénitra Atlantic #0017,2025-11-13 00:00:00,5.73,82.71
+Zone Kénitra Atlantic #0017,2025-11-19 00:00:00,2.76,86.09
+Zone Kénitra Atlantic #0017,2025-11-21 12:00:00,1.37,84.63
+Zone Kénitra Atlantic #0017,2025-11-23 18:00:00,3.3,83.53
+Zone Kénitra Atlantic #0017,2025-12-10 18:00:00,2.27,82.49
+Zone Kénitra Atlantic #0017,2025-12-17 18:00:00,0.46,82.44
+Zone Kénitra Atlantic #0017,2025-12-18 12:00:00,2.47,83.81
+Zone Kénitra Atlantic #0017,2025-12-24 12:00:00,1.56,85.43
+Zone Ifrane Logistique #0018,2025-01-02 12:00:00,-0.88,78.75
+Zone Ifrane Logistique #0018,2025-01-10 12:00:00,1.34,83.74
+Zone Ifrane Logistique #0018,2025-01-15 18:00:00,0.41,81.52
+Zone Ifrane Logistique #0018,2025-01-31 00:00:00,0.79,79.0
+Zone Ifrane Logistique #0018,2025-02-12 12:00:00,-0.24,77.56
+Zone Ifrane Logistique #0018,2025-02-13 12:00:00,-0.33,87.33
+Zone Ifrane Logistique #0018,2025-02-19 12:00:00,3.44,76.95
+Zone Ifrane Logistique #0018,2025-02-20 12:00:00,2.5,75.53
+Zone Ifrane Logistique #0018,2025-03-12 00:00:00,0.52,85.33
+Zone Ifrane Logistique #0018,2025-03-12 12:00:00,3.58,75.03
+Zone Ifrane Logistique #0018,2025-03-21 12:00:00,3.55,79.98
+Zone Ifrane Logistique #0018,2025-04-05 12:00:00,5.4,82.35
+Zone Ifrane Logistique #0018,2025-04-08 00:00:00,4.17,84.54
+Zone Ifrane Logistique #0018,2025-04-12 00:00:00,4.62,78.27
+Zone Ifrane Logistique #0018,2025-04-14 00:00:00,4.35,86.42
+Zone Ifrane Logistique #0018,2025-04-21 12:00:00,1.85,74.35
+Zone Ifrane Logistique #0018,2025-04-26 00:00:00,4.74,87.04
+Zone Ifrane Logistique #0018,2025-04-27 06:00:00,3.85,76.6
+Zone Ifrane Logistique #0018,2025-05-08 06:00:00,2.51,84.79
+Zone Ifrane Logistique #0018,2025-05-08 12:00:00,6.78,79.75
+Zone Ifrane Logistique #0018,2025-05-13 18:00:00,4.66,81.01
+Zone Ifrane Logistique #0018,2025-06-02 12:00:00,5.22,90.53
+Zone Ifrane Logistique #0018,2025-06-06 00:00:00,6.4,84.69
+Zone Ifrane Logistique #0018,2025-06-14 00:00:00,9.34,86.07
+Zone Ifrane Logistique #0018,2025-06-20 12:00:00,3.66,78.34
+Zone Ifrane Logistique #0018,2025-07-05 06:00:00,5.96,83.93
+Zone Ifrane Logistique #0018,2025-07-17 12:00:00,6.83,78.41
+Zone Ifrane Logistique #0018,2025-07-28 12:00:00,6.54,73.22
+Zone Ifrane Logistique #0018,2025-07-30 18:00:00,3.4,79.24
+Zone Ifrane Logistique #0018,2025-08-03 12:00:00,6.09,83.75
+Zone Ifrane Logistique #0018,2025-08-06 06:00:00,5.49,82.97
+Zone Ifrane Logistique #0018,2025-08-19 06:00:00,6.75,85.48
+Zone Ifrane Logistique #0018,2025-08-27 12:00:00,6.21,84.95
+Zone Ifrane Logistique #0018,2025-09-07 00:00:00,8.16,78.63
+Zone Ifrane Logistique #0018,2025-09-17 18:00:00,7.04,89.23
+Zone Ifrane Logistique #0018,2025-09-21 00:00:00,3.95,85.13
+Zone Ifrane Logistique #0018,2025-09-29 06:00:00,5.46,82.46
+Zone Ifrane Logistique #0018,2025-10-02 18:00:00,2.36,83.46
+Zone Ifrane Logistique #0018,2025-10-11 06:00:00,5.68,68.26
+Zone Ifrane Logistique #0018,2025-10-12 18:00:00,4.2,80.2
+Zone Ifrane Logistique #0018,2025-10-26 12:00:00,4.9,80.33
+Zone Ifrane Logistique #0018,2025-10-27 12:00:00,3.87,88.33
+Zone Ifrane Logistique #0018,2025-10-28 06:00:00,3.69,87.61
+Zone Ifrane Logistique #0018,2025-11-08 00:00:00,3.37,80.75
+Zone Ifrane Logistique #0018,2025-11-21 00:00:00,2.03,86.45
+Zone Ifrane Logistique #0018,2025-11-24 18:00:00,3.66,83.71
+Zone Ifrane Logistique #0018,2025-12-06 12:00:00,0.88,86.07
+Zone Ifrane Logistique #0018,2025-12-15 18:00:00,4.9,88.15
+Zone Ifrane Logistique #0018,2025-12-24 00:00:00,3.78,84.04
+Zone Ifrane Logistique #0018,2025-12-29 18:00:00,0.4,86.14
+Zone Guelmim #0019,2025-01-16 12:00:00,21.43,38.66
+Zone Guelmim #0019,2025-02-10 06:00:00,18.52,63.42
+Zone Guelmim #0019,2025-02-12 06:00:00,16.99,66.54
+Zone Guelmim #0019,2025-02-20 06:00:00,21.89,41.91
+Zone Guelmim #0019,2025-02-22 12:00:00,17.08,47.47
+Zone Guelmim #0019,2025-02-27 06:00:00,21.51,60.12
+Zone Guelmim #0019,2025-03-06 00:00:00,21.19,44.86
+Zone Guelmim #0019,2025-03-09 00:00:00,16.94,53.88
+Zone Guelmim #0019,2025-03-13 12:00:00,14.12,44.87
+Zone Guelmim #0019,2025-03-16 00:00:00,21.97,46.27
+Zone Guelmim #0019,2025-03-17 06:00:00,20.2,46.6
+Zone Guelmim #0019,2025-03-25 06:00:00,16.79,35.94
+Zone Guelmim #0019,2025-03-25 18:00:00,23.62,38.18
+Zone Guelmim #0019,2025-04-08 00:00:00,17.02,43.87
+Zone Guelmim #0019,2025-04-12 18:00:00,19.08,43.66
+Zone Guelmim #0019,2025-05-01 00:00:00,22.62,47.84
+Zone Guelmim #0019,2025-05-08 12:00:00,25.94,40.98
+Zone Guelmim #0019,2025-05-14 00:00:00,17.08,36.85
+Zone Guelmim #0019,2025-05-15 00:00:00,17.25,43.3
+Zone Guelmim #0019,2025-05-19 06:00:00,20.57,56.77
+Zone Guelmim #0019,2025-05-19 18:00:00,21.25,43.12
+Zone Guelmim #0019,2025-05-27 12:00:00,19.37,41.53
+Zone Guelmim #0019,2025-05-28 12:00:00,20.0,32.0
+Zone Guelmim #0019,2025-06-13 12:00:00,25.81,36.1
+Zone Guelmim #0019,2025-06-14 18:00:00,26.16,46.54
+Zone Guelmim #0019,2025-06-21 18:00:00,25.31,50.05
+Zone Guelmim #0019,2025-06-25 00:00:00,30.16,50.8
+Zone Guelmim #0019,2025-06-26 06:00:00,21.64,43.74
+Zone Guelmim #0019,2025-07-07 12:00:00,26.82,38.76
+Zone Guelmim #0019,2025-07-16 00:00:00,25.35,43.05
+Zone Guelmim #0019,2025-07-24 06:00:00,23.1,47.33
+Zone Guelmim #0019,2025-08-14 06:00:00,26.39,43.75
+Zone Guelmim #0019,2025-08-19 18:00:00,21.17,44.46
+Zone Guelmim #0019,2025-08-22 18:00:00,24.59,42.59
+Zone Guelmim #0019,2025-08-31 12:00:00,21.08,42.47
+Zone Guelmim #0019,2025-09-21 12:00:00,23.31,39.02
+Zone Guelmim #0019,2025-09-26 12:00:00,27.28,53.93
+Zone Guelmim #0019,2025-09-27 12:00:00,16.78,42.57
+Zone Guelmim #0019,2025-10-19 12:00:00,23.19,38.51
+Zone Guelmim #0019,2025-10-19 18:00:00,24.37,32.98
+Zone Guelmim #0019,2025-10-23 18:00:00,19.29,49.75
+Zone Guelmim #0019,2025-10-24 00:00:00,25.91,45.82
+Zone Guelmim #0019,2025-11-07 00:00:00,21.94,42.5
+Zone Guelmim #0019,2025-11-14 18:00:00,25.29,41.27
+Zone Guelmim #0019,2025-12-01 18:00:00,26.83,50.85
+Zone Guelmim #0019,2025-12-02 00:00:00,15.95,46.25
+Zone Guelmim #0019,2025-12-06 18:00:00,17.81,51.95
+Zone Guelmim #0019,2025-12-17 18:00:00,19.37,32.36
+Zone Guelmim #0019,2025-12-23 12:00:00,11.34,40.49
+Zone Guelmim #0019,2025-12-29 06:00:00,16.14,52.18
+Entrepôt Youssoufia #0020,2025-01-14 18:00:00,10.84,46.09
+Entrepôt Youssoufia #0020,2025-01-16 12:00:00,9.83,56.67
+Entrepôt Youssoufia #0020,2025-01-23 18:00:00,9.46,56.88
+Entrepôt Youssoufia #0020,2025-01-28 00:00:00,12.8,57.91
+Entrepôt Youssoufia #0020,2025-02-05 18:00:00,8.21,51.8
+Entrepôt Youssoufia #0020,2025-02-14 00:00:00,10.19,59.47
+Entrepôt Youssoufia #0020,2025-02-23 18:00:00,8.75,69.07
+Entrepôt Youssoufia #0020,2025-03-13 00:00:00,11.45,56.16
+Entrepôt Youssoufia #0020,2025-03-21 18:00:00,14.51,66.98
+Entrepôt Youssoufia #0020,2025-04-06 18:00:00,8.47,59.99
+Entrepôt Youssoufia #0020,2025-04-25 00:00:00,8.0,57.2
+Entrepôt Youssoufia #0020,2025-05-01 06:00:00,15.73,62.97
+Entrepôt Youssoufia #0020,2025-05-02 00:00:00,16.08,55.58
+Entrepôt Youssoufia #0020,2025-05-05 00:00:00,7.62,50.41
+Entrepôt Youssoufia #0020,2025-05-12 18:00:00,14.02,57.13
+Entrepôt Youssoufia #0020,2025-05-19 18:00:00,16.87,59.26
+Entrepôt Youssoufia #0020,2025-05-20 18:00:00,13.13,58.16
+Entrepôt Youssoufia #0020,2025-05-24 18:00:00,9.23,53.17
+Entrepôt Youssoufia #0020,2025-05-31 06:00:00,15.18,70.62
+Entrepôt Youssoufia #0020,2025-06-22 12:00:00,15.46,59.84
+Entrepôt Youssoufia #0020,2025-06-24 00:00:00,16.13,60.32
+Entrepôt Youssoufia #0020,2025-07-03 00:00:00,11.55,61.57
+Entrepôt Youssoufia #0020,2025-07-07 06:00:00,10.7,66.51
+Entrepôt Youssoufia #0020,2025-07-30 12:00:00,15.44,58.92
+Entrepôt Youssoufia #0020,2025-07-31 00:00:00,19.82,56.32
+Entrepôt Youssoufia #0020,2025-08-08 18:00:00,12.56,73.36
+Entrepôt Youssoufia #0020,2025-08-14 00:00:00,13.35,67.65
+Entrepôt Youssoufia #0020,2025-08-17 00:00:00,11.28,60.5
+Entrepôt Youssoufia #0020,2025-08-29 12:00:00,15.72,64.03
+Entrepôt Youssoufia #0020,2025-08-30 00:00:00,20.97,58.85
+Entrepôt Youssoufia #0020,2025-09-06 18:00:00,9.95,63.46
+Entrepôt Youssoufia #0020,2025-09-19 00:00:00,11.26,60.38
+Entrepôt Youssoufia #0020,2025-09-19 18:00:00,17.63,44.78
+Entrepôt Youssoufia #0020,2025-09-22 18:00:00,10.94,59.62
+Entrepôt Youssoufia #0020,2025-10-02 00:00:00,11.47,55.37
+Entrepôt Youssoufia #0020,2025-10-03 00:00:00,18.23,59.83
+Entrepôt Youssoufia #0020,2025-10-03 12:00:00,17.12,66.69
+Entrepôt Youssoufia #0020,2025-10-04 18:00:00,16.5,57.27
+Entrepôt Youssoufia #0020,2025-10-06 00:00:00,11.95,67.95
+Entrepôt Youssoufia #0020,2025-10-23 18:00:00,13.53,63.27
+Entrepôt Youssoufia #0020,2025-10-28 18:00:00,15.26,62.83
+Entrepôt Youssoufia #0020,2025-10-29 00:00:00,11.41,60.77
+Entrepôt Youssoufia #0020,2025-11-05 00:00:00,4.88,66.59
+Entrepôt Youssoufia #0020,2025-11-10 00:00:00,14.42,67.63
+Entrepôt Youssoufia #0020,2025-11-18 18:00:00,12.42,60.64
+Entrepôt Youssoufia #0020,2025-11-19 12:00:00,9.8,58.74
+Entrepôt Youssoufia #0020,2025-11-27 12:00:00,12.78,52.17
+Entrepôt Youssoufia #0020,2025-12-08 18:00:00,11.65,69.74
+Entrepôt Youssoufia #0020,2025-12-10 12:00:00,11.63,50.71
+Entrepôt Youssoufia #0020,2025-12-24 12:00:00,6.06,49.22
