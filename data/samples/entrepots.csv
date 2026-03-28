@@ -1,0 +1,5 @@
+nom,lat,lon,type_stockage
+Entrepot_Casa_Nord,33.6000,-7.5000,froid
+Entrepot_Casa_Sud,33.5000,-7.6000,sec
+Entrepot_Rabat,34.0000,-6.8000,sec
+Entrepot_Marrakech,31.6000,-8.0000,froid
