@@ -1,58 +1,44 @@
 import pandas as pd
 import numpy as np
+from datetime import datetime, timedelta
+from utils.constants import DAYS_IN_YEAR, HOURS_PER_DAY, DATA_PATH
 
-# Paramètres du dataset
-output_file = "C:/Users/rafik/optistock_solutions/historique_iot_2025.csv"
-
-start_date = "2025-01-01"
-end_date = "2025-12-31 23:59:59"
-# Génération horaire sur toute l'année (8760 heures)
-dates = pd.date_range(start=start_date, end=end_date, freq="h")
-num_hours = len(dates)
-
-# Configuration des 4 entrepôts présents dans vos tests
-entrepots = [
-    {"nom": "Hub Casablanca", "type": "Froid", "temp_base": 4.0, "temp_var_saison": 2.0, "temp_noise": 0.5, "hum_base": 85.0, "hum_noise": 3.0},
-    {"nom": "Zone Tanger Med", "type": "Froid", "temp_base": 3.5, "temp_var_saison": 1.5, "temp_noise": 0.4, "hum_base": 82.0, "hum_noise": 2.5},
-    {"nom": "Plateforme Marrakech", "type": "Froid", "temp_base": 5.0, "temp_var_saison": 3.0, "temp_noise": 0.8, "hum_base": 78.0, "hum_noise": 4.0},
-    {"nom": "Entrepôt Béni Mellal", "type": "Sec", "temp_base": 20.0, "temp_var_saison": 8.0, "temp_noise": 1.5, "hum_base": 50.0, "hum_noise": 8.0},
-]
-
-all_data = []
-
-# Pour que les résultats soient reproductibles
-np.random.seed(42)
-
-for ent in entrepots:
-    # 1. Effet saisonnier : la température monte en été (vers les jours 150-240) et baisse en hiver.
-    # On utilise un cosinus négatif décalé pour représenter l'année.
-    jours_annee = np.arange(num_hours) / 24
-    saison_effect = -np.cos(2 * np.pi * (jours_annee - 20) / 365.25) * ent["temp_var_saison"]
+def generate_iot_dataset():
+    print("--- Démarrage de la simulation annuelle OptiStock ---")
     
-    # 2. Température de base + variabilité saisonnière + bruit blanc (fluctuations quotidiennes)
-    temp = ent["temp_base"] + saison_effect + np.random.normal(0, ent["temp_noise"], num_hours)
+    # 1. Création de la plage de temps (8760 points pour 1 an)
+    start_date = datetime(2025, 1, 1)
+    timestamps = [start_date + timedelta(hours=i) for i in range(DAYS_IN_YEAR * HOURS_PER_DAY)]
     
-    # 3. Ajout d'anomalies aléatoires (simulant de rares pannes de climatisation qui provoquent des pics de chaleur)
-    anomalies = np.random.choice([0, 5], size=num_hours, p=[0.998, 0.002])
-    temp += anomalies
+    # 2. Création de la courbe saisonnière (Cycle de 365 jours)
+    # On utilise un sinus décalé pour que le minimum soit en hiver et le max en été
+    time_index = np.arange(len(timestamps))
+    annual_cycle = np.sin(2 * np.pi * time_index / (DAYS_IN_YEAR * HOURS_PER_DAY) - np.pi/2)
     
-    # 4. Génération de l'humidité relative avec un bruit blanc naturel
-    hum = ent["hum_base"] + np.random.normal(0, ent["hum_noise"], num_hours)
-    hum = np.clip(hum, 0, 100) # L'humidité ne peut pas dépasser 100% ou être inférieure à 0%
+    # --- Température (°C) ---
+    # Moyenne 20°C, oscille entre 10°C (hiver) et 30°C (été) + bruit aléatoire
+    temp_base = 20 + 10 * annual_cycle
+    temp_noise = np.random.normal(0, 1.5, len(timestamps))
+    temperature = np.round(temp_base + temp_noise, 2)
     
-    # 5. Création du DataFrame pour cet entrepôt
+    # --- Humidité (%) ---
+    # Souvent plus haute quand il fait froid, plus basse quand il fait chaud
+    humid_base = 50 - 15 * annual_cycle
+    humid_noise = np.random.normal(0, 4, len(timestamps))
+    humidity = np.round(np.clip(humid_base + humid_noise, 15, 90), 2)
+    
+    # 3. Création du DataFrame
     df = pd.DataFrame({
-        "nom_entrepot": ent["nom"],
-        "date": dates,
-        "temperature": np.round(temp, 2), # Arrondi à 2 décimales
-        "humidite": np.round(hum, 2)
+        'timestamp': timestamps,
+        'capteur_id': 'SN-TDI-2026-001', # Un ID pro pour ton club Industrie 4.0
+        'temperature': temperature,
+        'humidite': humidity
     })
     
-    all_data.append(df)
+    # 4. Sauvegarde dans le bon dossier
+    df.to_csv(DATA_PATH, index=False)
+    print(f"✅ Dataset généré avec succès : {DATA_PATH}")
+    print(f"📊 Nombre de lignes : {len(df)}")
 
-# Concaténation de tous les entrepôts
-df_final = pd.concat(all_data, ignore_index=True)
-
-# Sauvegarde en CSV
-df_final.to_csv(output_file, index=False)
-print(f"✅ {len(df_final)} relevés générés avec succès dans '{output_file}'.")
+if __name__ == "__main__":
+    generate_iot_dataset()
