@@ -4,6 +4,11 @@
   OPTISTOCK SOLUTIONS — Générateur de Données de Test (1000 lignes)
   Contexte : Maroc — Villes, coordonnées et logistique réalistes
   Fichier : generate_test_data_test_1.py
+  
+  v2.0 — Corrections :
+  - Biais géographique réaliste (axe Casa-Rabat-Tanger = 60%)
+  - Données IoT conformes par type de stockage
+  - Fichier clients_maroc inclus
 =============================================================================
 """
 
@@ -26,58 +31,70 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # ══════════════════════════════════════════════════════════════════════════════
 
 # 50 villes marocaines avec coordonnées réalistes
+# Chaque ville a un "poids logistique" reflétant l'activité économique réelle
 VILLES_MAROC = [
-    {"ville": "Casablanca",      "lat": 33.5731, "lon": -7.5898},
-    {"ville": "Rabat",           "lat": 34.0209, "lon": -6.8416},
-    {"ville": "Marrakech",       "lat": 31.6295, "lon": -7.9811},
-    {"ville": "Fès",             "lat": 34.0333, "lon": -4.9998},
-    {"ville": "Tanger",          "lat": 35.7595, "lon": -5.8340},
-    {"ville": "Agadir",          "lat": 30.4202, "lon": -9.5982},
-    {"ville": "Meknès",          "lat": 33.8935, "lon": -5.5547},
-    {"ville": "Oujda",           "lat": 34.6867, "lon": -1.9114},
-    {"ville": "Kénitra",         "lat": 34.2610, "lon": -6.5802},
-    {"ville": "Tétouan",         "lat": 35.5785, "lon": -5.3684},
-    {"ville": "Safi",            "lat": 32.2994, "lon": -9.2372},
-    {"ville": "El Jadida",       "lat": 33.2549, "lon": -8.5000},
-    {"ville": "Nador",           "lat": 35.1681, "lon": -2.9287},
-    {"ville": "Béni Mellal",     "lat": 32.3394, "lon": -6.3498},
-    {"ville": "Taza",            "lat": 34.2100, "lon": -4.0100},
-    {"ville": "Khémisset",       "lat": 33.8242, "lon": -6.0664},
-    {"ville": "Settat",          "lat": 33.0016, "lon": -7.6166},
-    {"ville": "Khouribga",       "lat": 32.8811, "lon": -6.9063},
-    {"ville": "Berrechid",       "lat": 33.2651, "lon": -7.5875},
-    {"ville": "Mohammedia",      "lat": 33.6861, "lon": -7.3828},
-    {"ville": "Larache",         "lat": 35.1932, "lon": -6.1563},
-    {"ville": "Guelmim",         "lat": 28.9870, "lon": -10.0574},
-    {"ville": "Errachidia",      "lat": 31.9314, "lon": -4.4260},
-    {"ville": "Ouarzazate",      "lat": 30.9189, "lon": -6.8936},
-    {"ville": "Tan-Tan",         "lat": 28.4380, "lon": -11.1032},
-    {"ville": "Al Hoceima",      "lat": 35.2517, "lon": -3.9372},
-    {"ville": "Essaouira",       "lat": 31.5085, "lon": -9.7595},
-    {"ville": "Ifrane",          "lat": 33.5228, "lon": -5.1109},
-    {"ville": "Chefchaouen",     "lat": 35.1688, "lon": -5.2636},
-    {"ville": "Midelt",          "lat": 32.6802, "lon": -4.7340},
-    {"ville": "Azrou",           "lat": 33.4344, "lon": -5.2218},
-    {"ville": "Tiznit",          "lat": 29.6974, "lon": -9.8022},
-    {"ville": "Taroudant",       "lat": 30.4727, "lon": -8.8748},
-    {"ville": "Sidi Kacem",      "lat": 34.2260, "lon": -5.7136},
-    {"ville": "Sidi Slimane",    "lat": 34.2622, "lon": -5.9298},
-    {"ville": "Youssoufia",      "lat": 32.2499, "lon": -8.5298},
-    {"ville": "Benguerir",       "lat": 32.2328, "lon": -7.9534},
-    {"ville": "Skhirat",         "lat": 33.8533, "lon": -7.0328},
-    {"ville": "Témara",          "lat": 33.9288, "lon": -6.9122},
-    {"ville": "Salé",            "lat": 34.0531, "lon": -6.7986},
-    {"ville": "Inezgane",        "lat": 30.3553, "lon": -9.5370},
-    {"ville": "Aït Melloul",     "lat": 30.3340, "lon": -9.4970},
-    {"ville": "Dakhla",          "lat": 23.7148, "lon": -15.9570},
-    {"ville": "Laâyoune",        "lat": 27.1253, "lon": -13.1625},
-    {"ville": "Fnideq",          "lat": 35.8504, "lon": -5.3578},
-    {"ville": "Berkane",         "lat": 34.9200, "lon": -2.3200},
-    {"ville": "Taourirt",        "lat": 34.4100, "lon": -2.8900},
-    {"ville": "Bouarfa",         "lat": 32.5300, "lon": -1.9500},
-    {"ville": "Figuig",          "lat": 32.1141, "lon": -1.2296},
-    {"ville": "Zagora",          "lat": 30.3280, "lon": -5.8383},
+    # ─── Axe principal (60% du trafic logistique) ───
+    {"ville": "Casablanca",      "lat": 33.5731, "lon": -7.5898, "poids": 20},
+    {"ville": "Rabat",           "lat": 34.0209, "lon": -6.8416, "poids": 10},
+    {"ville": "Tanger",          "lat": 35.7595, "lon": -5.8340, "poids": 10},
+    {"ville": "Kénitra",         "lat": 34.2610, "lon": -6.5802, "poids": 5},
+    {"ville": "Mohammedia",      "lat": 33.6861, "lon": -7.3828, "poids": 5},
+    {"ville": "Salé",            "lat": 34.0531, "lon": -6.7986, "poids": 4},
+    {"ville": "Témara",          "lat": 33.9288, "lon": -6.9122, "poids": 3},
+    {"ville": "Skhirat",         "lat": 33.8533, "lon": -7.0328, "poids": 2},
+    {"ville": "Berrechid",       "lat": 33.2651, "lon": -7.5875, "poids": 2},
+    
+    # ─── Pôle secondaire (25%) ───
+    {"ville": "Marrakech",       "lat": 31.6295, "lon": -7.9811, "poids": 6},
+    {"ville": "Fès",             "lat": 34.0333, "lon": -4.9998, "poids": 5},
+    {"ville": "Agadir",          "lat": 30.4202, "lon": -9.5982, "poids": 4},
+    {"ville": "Meknès",          "lat": 33.8935, "lon": -5.5547, "poids": 3},
+    {"ville": "Oujda",           "lat": 34.6867, "lon": -1.9114, "poids": 2},
+    {"ville": "El Jadida",       "lat": 33.2549, "lon": -8.5000, "poids": 2},
+    {"ville": "Settat",          "lat": 33.0016, "lon": -7.6166, "poids": 2},
+    {"ville": "Nador",           "lat": 35.1681, "lon": -2.9287, "poids": 2},
+    
+    # ─── Pôle tertiaire (15%) ───
+    {"ville": "Tétouan",         "lat": 35.5785, "lon": -5.3684, "poids": 1},
+    {"ville": "Safi",            "lat": 32.2994, "lon": -9.2372, "poids": 1},
+    {"ville": "Béni Mellal",     "lat": 32.3394, "lon": -6.3498, "poids": 1},
+    {"ville": "Taza",            "lat": 34.2100, "lon": -4.0100, "poids": 1},
+    {"ville": "Khémisset",       "lat": 33.8242, "lon": -6.0664, "poids": 1},
+    {"ville": "Khouribga",       "lat": 32.8811, "lon": -6.9063, "poids": 1},
+    {"ville": "Larache",         "lat": 35.1932, "lon": -6.1563, "poids": 1},
+    {"ville": "Guelmim",         "lat": 28.9870, "lon": -10.0574, "poids": 1},
+    {"ville": "Errachidia",      "lat": 31.9314, "lon": -4.4260, "poids": 1},
+    {"ville": "Ouarzazate",      "lat": 30.9189, "lon": -6.8936, "poids": 1},
+    {"ville": "Tan-Tan",         "lat": 28.4380, "lon": -11.1032, "poids": 1},
+    {"ville": "Al Hoceima",      "lat": 35.2517, "lon": -3.9372, "poids": 1},
+    {"ville": "Essaouira",       "lat": 31.5085, "lon": -9.7595, "poids": 1},
+    {"ville": "Ifrane",          "lat": 33.5228, "lon": -5.1109, "poids": 1},
+    {"ville": "Chefchaouen",     "lat": 35.1688, "lon": -5.2636, "poids": 1},
+    {"ville": "Midelt",          "lat": 32.6802, "lon": -4.7340, "poids": 1},
+    {"ville": "Azrou",           "lat": 33.4344, "lon": -5.2218, "poids": 1},
+    {"ville": "Tiznit",          "lat": 29.6974, "lon": -9.8022, "poids": 1},
+    {"ville": "Taroudant",       "lat": 30.4727, "lon": -8.8748, "poids": 1},
+    {"ville": "Sidi Kacem",      "lat": 34.2260, "lon": -5.7136, "poids": 1},
+    {"ville": "Sidi Slimane",    "lat": 34.2622, "lon": -5.9298, "poids": 1},
+    {"ville": "Youssoufia",      "lat": 32.2499, "lon": -8.5298, "poids": 1},
+    {"ville": "Benguerir",       "lat": 32.2328, "lon": -7.9534, "poids": 1},
+    {"ville": "Inezgane",        "lat": 30.3553, "lon": -9.5370, "poids": 1},
+    {"ville": "Aït Melloul",     "lat": 30.3340, "lon": -9.4970, "poids": 1},
+    {"ville": "Dakhla",          "lat": 23.7148, "lon": -15.9570, "poids": 1},
+    {"ville": "Laâyoune",        "lat": 27.1253, "lon": -13.1625, "poids": 1},
+    {"ville": "Fnideq",          "lat": 35.8504, "lon": -5.3578, "poids": 1},
+    {"ville": "Berkane",         "lat": 34.9200, "lon": -2.3200, "poids": 1},
+    {"ville": "Taourirt",        "lat": 34.4100, "lon": -2.8900, "poids": 1},
+    {"ville": "Bouarfa",         "lat": 32.5300, "lon": -1.9500, "poids": 1},
+    {"ville": "Figuig",          "lat": 32.1141, "lon": -1.2296, "poids": 1},
+    {"ville": "Zagora",          "lat": 30.3280, "lon": -5.8383, "poids": 1},
 ]
+
+def choisir_ville_ponderee():
+    """Sélectionne une ville avec probabilité proportionnelle à son poids logistique."""
+    poids_total = sum(v["poids"] for v in VILLES_MAROC)
+    probas = [v["poids"] / poids_total for v in VILLES_MAROC]
+    return VILLES_MAROC[np.random.choice(len(VILLES_MAROC), p=probas)]
 
 # Noms d'entrepôts réalistes pour le Maroc
 NOMS_ENTREPOTS = [
@@ -108,14 +125,11 @@ print("📦 Génération de demandes_clients_test_1.csv ...")
 
 rows_demandes = []
 for i in range(1000):
-    ville_info = random.choice(VILLES_MAROC)
-    # Ajouter un léger bruit aux coordonnées pour simuler différents points
+    ville_info = choisir_ville_ponderee()
     lat = round(ville_info["lat"] + np.random.uniform(-0.08, 0.08), 4)
     lon = round(ville_info["lon"] + np.random.uniform(-0.08, 0.08), 4)
-    # Demande réaliste entre 50 et 5000 unités
     demande = int(np.random.lognormal(mean=6.5, sigma=0.8))
     demande = min(max(demande, 50), 8000)
-    # Tarif transport en MAD/km (entre 0.8 et 3.5)
     tarif = round(np.random.uniform(0.8, 3.5), 2)
     rows_demandes.append({
         "ville": ville_info["ville"],
@@ -138,18 +152,15 @@ print(f"   ✅ {len(df_demandes)} lignes générées.")
 print("🏭 Génération de entrepots_test_1.csv ...")
 
 rows_entrepots = []
-used_names = set()
 
 for i in range(1000):
-    ville_info = random.choice(VILLES_MAROC)
-    # Créer un nom unique pour chaque entrepôt
+    ville_info = choisir_ville_ponderee()
     base_name = random.choice(NOMS_ENTREPOTS)
     unique_name = f"{base_name} #{i+1:04d}"
     
     lat = round(ville_info["lat"] + np.random.uniform(-0.05, 0.05), 4)
     lon = round(ville_info["lon"] + np.random.uniform(-0.05, 0.05), 4)
     type_stockage = random.choice(TYPES_STOCKAGE)
-    # Volume en m³ (entre 500 et 50000)
     volume = int(np.random.lognormal(mean=8.5, sigma=0.7))
     volume = min(max(volume, 500), 60000)
     
@@ -174,14 +185,12 @@ print(f"   ✅ {len(df_entrepots)} lignes générées.")
 
 print("🌡️  Génération de historique_iot_test_1.csv ...")
 
-# Générer des données IoT pour TOUS les entrepôts du catalogue
 entrepots_iot = df_entrepots["nom"].unique()
 
 rows_iot = []
 dates_range = pd.date_range("2025-01-01", "2025-12-31 23:00:00", freq="6h")
 
 for ent_nom in entrepots_iot:
-    # Déterminer le type de cet entrepôt pour ajuster les températures
     ent_row = df_entrepots[df_entrepots["nom"] == ent_nom].iloc[0]
     type_stock = ent_row["type_stockage"]
     
@@ -235,7 +244,7 @@ print("🚚 Génération de trajets_clients_test_1.csv ...")
 
 rows_trajets = []
 for i in range(1000):
-    ville_info = random.choice(VILLES_MAROC)
+    ville_info = choisir_ville_ponderee()
     lat = round(ville_info["lat"] + np.random.uniform(-0.1, 0.1), 4)
     lon = round(ville_info["lon"] + np.random.uniform(-0.1, 0.1), 4)
     type_requis = random.choice(["froid", "sec", "mixte"])
@@ -261,7 +270,7 @@ print("📍 Génération de clients_maroc_test_1.csv ...")
 
 rows_clients = []
 for i in range(1000):
-    ville_info = random.choice(VILLES_MAROC)
+    ville_info = choisir_ville_ponderee()
     lat = round(ville_info["lat"] + np.random.uniform(-0.06, 0.06), 4)
     lon = round(ville_info["lon"] + np.random.uniform(-0.06, 0.06), 4)
     volume = int(np.random.lognormal(mean=6.2, sigma=0.9))
@@ -293,4 +302,11 @@ print(f"  📄 historique_iot_test_1.csv      → {len(df_iot):>5} lignes")
 print(f"  📄 trajets_clients_test_1.csv    → {len(df_trajets):>5} lignes")
 print(f"  📄 clients_maroc_test_1.csv      → {len(df_clients):>5} lignes")
 print(f"\n  Total : {len(df_demandes) + len(df_entrepots) + len(df_iot) + len(df_trajets) + len(df_clients)} lignes de données")
+
+# Distribution géographique
+print("\n  📊 Distribution géographique réaliste :")
+for ville in ["Casablanca", "Rabat", "Tanger", "Marrakech", "Fès"]:
+    count = len(df_entrepots[df_entrepots["nom"].str.contains(ville, case=False, na=False)]) + \
+            len(df_demandes[df_demandes["ville"] == ville])
+    print(f"     {ville:15s} → {count} références")
 print("=" * 65)
