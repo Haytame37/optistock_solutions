@@ -1,0 +1,16 @@
+nom,lat,lon,type_stockage,volume
+Hub_Casablanca_Ain_Sebaa,33.6100,-7.5500,froid,12000
+Hub_Casablanca_Nouaceur,33.3700,-7.5800,sec,18000
+Plateforme_Mohammedia,33.6900,-7.3800,mixte,8500
+Zone_Kenitra_Atlantic,34.2600,-6.5800,sec,9200
+Hub_Rabat_Technopolis,33.9500,-6.8500,mixte,7800
+Plateforme_Tanger_Med,35.7900,-5.8100,froid,15000
+Zone_Tanger_Free_Zone,35.7400,-5.8600,sec,11000
+Hub_Fes_Saiss,34.0300,-5.0000,mixte,6500
+Hub_Marrakech_Tassiltante,31.6300,-7.9800,sec,10500
+Plateforme_Agadir_Haliopolis,30.4200,-9.5800,froid,9800
+Zone_Agadir_Ait_Melloul,30.3500,-9.5100,mixte,7200
+Hub_Oujda_Technopole,34.6800,-1.9100,sec,5500
+Plateforme_Beni_Mellal,32.3400,-6.3600,mixte,6800
+Entrepot_Laayoune,27.1500,-13.2000,sec,4200
+Entrepot_Nador_West_Med,35.1700,-2.9300,froid,7500
