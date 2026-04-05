@@ -109,21 +109,28 @@ with tab1:
     
     # --- SECTION 1 : IMPORTATION ---
     st.subheader("1. Importation des fichiers")
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     
     df_entrepots = handle_upload(
         "Catalogue des Entrepôts (CSV)", 
-        ['nom', 'lat', 'lon', 'type_stockage', 'volume'],
-        ['nom', 'lat', 'lon', 'type_stockage', 'volume (m³)'],
-        ['Hub_Casa', '33.61', '-7.55', 'froid', '12000'],
+        ['id_entrepot', 'id_proprietaire', 'nom', 'latitude', 'longitude', 'type_stockage', 'volume'],
+        ['id_entrepot', 'id_proprietaire', 'nom', 'latitude', 'longitude', 'type_stockage', 'volume (m³)'],
+        ['ENT001', 'OWN001', 'Hub_Casa', '33.61', '-7.55', 'froid', '12000'],
         col=col1
     )
-    df_iot = handle_upload(
-        "Historique Capteurs IoT (CSV)", 
-        ['nom_entrepot', 'date', 'temperature', 'humidite'],
-        ['nom_entrepot', 'date', 'température (°C)', 'humidité (%)'],
-        ['Hub_Casa', '2025-01-01 08:00', '4.2', '72.5'],
+    df_temp = handle_upload(
+        "Historique Température IoT (CSV)", 
+        ['id', 'id_entrepot', 'datetime', 'capteur1', 'capteur2', 'capteur3'],
+        ['id', 'id_entrepot', 'datetime', 'T_C1', 'T_C2', 'T_C3'],
+        ['TMP-ENT001-001', 'ENT001', '2025-01-01 08:00', '4.2', '4.5', '4.1'],
         col=col2
+    )
+    df_humid = handle_upload(
+        "Historique Humidité IoT (CSV)", 
+        ['id', 'id_entrepot', 'id_proprietaire', 'datetime', 'capteur1', 'capteur2', 'capteur3'],
+        ['id', 'id_entrepot', 'id_proprietaire', 'datetime', 'H_C1', 'H_C2', 'H_C3'],
+        ['HUM-ENT001-001', 'ENT001', 'OWN001', '2025-01-01 08:00', '72.5', '71.5', '73.0'],
+        col=col3
     )
     df_trajets = handle_upload(
         "Trajets logistiques de tous les clients (CSV)", 
@@ -161,15 +168,22 @@ with tab1:
     
     # --- SECTION 3 : ANALYSE ---
     if st.button("🚀 Lancer l'Analyse Complète", type="primary"):
-        if df_entrepots is not None and df_iot is not None and df_trajets is not None:
+        if df_entrepots is not None and df_temp is not None and df_humid is not None and df_trajets is not None:
             with st.spinner('Analyse en cours sur tous les clients...'):
                 
                 # ── Pré-calcul IoT ──
-                type_map = dict(zip(df_entrepots['nom'], df_entrepots['type_stockage']))
+                type_map = dict(zip(df_entrepots['id_entrepot'], df_entrepots['type_stockage']))
                 stats_iot = {}
-                for nom_ent, group in df_iot.groupby('nom_entrepot'):
-                    type_stock = type_map.get(nom_ent, "mixte")
-                    stats_iot[nom_ent] = calculer_taux_conformite_iot(group, type_stock)
+                
+                temp_grouped = dict(tuple(df_temp.groupby('id_entrepot')))
+                humid_grouped = dict(tuple(df_humid.groupby('id_entrepot')))
+                entrepots_avec_iot = set(temp_grouped.keys()).intersection(set(humid_grouped.keys()))
+                
+                for id_ent in entrepots_avec_iot:
+                    group_temp = temp_grouped[id_ent]
+                    group_humid = humid_grouped[id_ent]
+                    type_stock = type_map.get(id_ent, "mixte")
+                    stats_iot[id_ent] = calculer_taux_conformite_iot(group_temp, group_humid, type_stock)
                 
                 PENALITE_SANS_IOT = 0.85
                 
@@ -200,10 +214,11 @@ with tab1:
                             if coeff == 0:
                                 continue
                             
-                            d = haversine(client['lat'], client['lon'], ent['lat'], ent['lon'])
+                            d = haversine(client['lat'], client['lon'], ent['latitude'], ent['longitude'])
                             
-                            if ent['nom'] in stats_iot:
-                                iot = stats_iot[ent['nom']]
+                            val_ent = ent['id_entrepot']
+                            if val_ent in stats_iot:
+                                iot = stats_iot[val_ent]
                                 s_t = iot['score_temp']
                                 s_h = iot['score_hum']
                                 has_iot = True
@@ -212,7 +227,7 @@ with tab1:
                                 s_t = score_conformite_temperature(seuils['temp_ideale'], ent['type_stockage'])
                                 s_h = score_conformite_humidite(seuils['hum_ideale'], ent['type_stockage'])
                                 has_iot = False
-                                entrepots_sans_iot.add(ent['nom'])
+                                entrepots_sans_iot.add(val_ent)
                             
                             s = calculer_score_mixte(d, s_t, s_h, poids)
                             s = round(s * coeff, 2)
@@ -226,14 +241,16 @@ with tab1:
                             avg_dist = round(np.mean([x['dist'] for x in scores_clients]), 1)
                             nb_compat = len(scores_clients)
                             
-                            scores_entrepots[ent['nom']] = {
+                            val_ent = ent['id_entrepot']
+                            scores_entrepots[val_ent] = {
                                 'Score Global': avg_score,
                                 'Distance Moy (km)': avg_dist,
-                                'Entrepôt': ent['nom'],
+                                'ID_Entrepôt': val_ent,
+                                'Nom_Entrepôt': ent['nom'],
                                 'Type': ent['type_stockage'],
                                 'Capacité (m³)': ent['volume'],
                                 'Clients Compatibles': f"{nb_compat}/{len(df_zone)}",
-                                'IoT': "✅" if ent['nom'] in stats_iot else "⚠️ Estimé",
+                                'IoT': "✅" if val_ent in stats_iot else "⚠️ Estimé",
                             }
                     
                     # Trier et prendre le Top 3

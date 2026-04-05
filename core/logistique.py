@@ -155,31 +155,29 @@ def score_conformite_humidite(hum_moyenne, type_stockage):
         return round(score, 2)
 
 
-def calculer_taux_conformite_iot(df_iot_entrepot, type_stockage):
+def calculer_taux_conformite_iot(df_temp_entrepot, df_humid_entrepot, type_stockage):
     """
     Calcule les métriques de conformité IoT à partir des relevés bruts d'un entrepôt.
-    
-    Retourne un dictionnaire avec :
-    - score_temp : Score de conformité température [0, 100]
-    - score_hum  : Score de conformité humidité [0, 100]
-    - taux_conf  : % de relevés dans les seuils acceptables
-    - temp_moy   : Température moyenne (pour affichage)
-    - hum_moy    : Humidité moyenne (pour affichage)
+    Moyenne des 3 capteurs pour chaque horodatage.
     """
     seuils = SEUILS_CONFORMITE.get(type_stockage, SEUILS_CONFORMITE["mixte"])
     
-    temp_moy = df_iot_entrepot['temperature'].mean()
-    hum_moy = df_iot_entrepot['humidite'].mean()
+    # Moyenne par ligne (sur les 3 capteurs)
+    t_avg = df_temp_entrepot[['capteur1', 'capteur2', 'capteur3']].mean(axis=1)
+    h_avg = df_humid_entrepot[['capteur1', 'capteur2', 'capteur3']].mean(axis=1)
+    
+    temp_moy = t_avg.mean()
+    hum_moy = h_avg.mean()
     
     # Taux de conformité = % de relevés dans la plage acceptable
     conforme_temp = (
-        (df_iot_entrepot['temperature'] >= seuils['temp_min']) & 
-        (df_iot_entrepot['temperature'] <= seuils['temp_max'])
+        (t_avg >= seuils['temp_min']) & 
+        (t_avg <= seuils['temp_max'])
     ).mean() * 100
     
     conforme_hum = (
-        (df_iot_entrepot['humidite'] >= seuils['hum_min']) & 
-        (df_iot_entrepot['humidite'] <= seuils['hum_max'])
+        (h_avg >= seuils['hum_min']) & 
+        (h_avg <= seuils['hum_max'])
     ).mean() * 100
     
     # Score combiné : pondération taux_conformité (60%) + proximité_ideale (40%)

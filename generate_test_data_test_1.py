@@ -146,7 +146,7 @@ print(f"   ✅ {len(df_demandes)} lignes générées.")
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  2. CATALOGUE ENTREPÔTS — 1000 lignes
-#     Colonnes : nom, lat, lon, type_stockage, volume
+#     Colonnes : id_entrepot, id_proprietaire, nom, latitude, longitude, type_stockage, volume
 # ══════════════════════════════════════════════════════════════════════════════
 
 print("🏭 Génération de entrepots_test_1.csv ...")
@@ -164,10 +164,17 @@ for i in range(1000):
     volume = int(np.random.lognormal(mean=8.5, sigma=0.7))
     volume = min(max(volume, 500), 60000)
     
+    # Nouvelles clés
+    id_entrepot = f"ENT{i+1:03d}"
+    # Assignation d'un propriétaire (disons qu'il y a 200 proprios max)
+    id_proprietaire = f"OWN{np.random.randint(1, 201):03d}"
+    
     rows_entrepots.append({
+        "id_entrepot": id_entrepot,
+        "id_proprietaire": id_proprietaire,
         "nom": unique_name,
-        "lat": lat,
-        "lon": lon,
+        "latitude": lat,
+        "longitude": lon,
         "type_stockage": type_stockage,
         "volume": volume,
     })
@@ -178,23 +185,23 @@ print(f"   ✅ {len(df_entrepots)} lignes générées.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  3. HISTORIQUE IoT — ~50 000 lignes (50 relevés × 1000 entrepôts)
-#     Colonnes : nom_entrepot, date, temperature, humidite
-#     Chaque entrepôt du catalogue reçoit 50 mesures capteurs sur l'année 2025
+#  3. HISTORIQUES IoT (Température et Humidité) — ~50 000 lignes
+#     Temp: id, id_entrepot, datetime, capteur1, capteur2, capteur3
+#     Hum: id, id_entrepot, id_proprietaire, datetime, capteur1, capteur2, capteur3
 # ══════════════════════════════════════════════════════════════════════════════
 
-print("🌡️  Génération de historique_iot_test_1.csv ...")
+print("🌡️  Génération de temperature_test_1.csv et humidite_test_1.csv ...")
 
-entrepots_iot = df_entrepots["nom"].unique()
+rows_temp = []
+rows_humid = []
+dates_range = pd.date_range("2024-01-01", "2024-12-31 23:00:00", freq="6h") # Remplacer 2025 par 2024 basé sur user hint
 
-rows_iot = []
-dates_range = pd.date_range("2025-01-01", "2025-12-31 23:00:00", freq="6h")
-
-for ent_nom in entrepots_iot:
-    ent_row = df_entrepots[df_entrepots["nom"] == ent_nom].iloc[0]
+for index, ent_row in df_entrepots.iterrows():
+    id_ent = ent_row["id_entrepot"]
+    id_prop = ent_row["id_proprietaire"]
     type_stock = ent_row["type_stockage"]
     
-    # Paramètres de température selon le type
+    # Paramètres selon le type
     if type_stock == "froid":
         temp_base, temp_noise = 4.0, 1.2
         hum_base, hum_noise = 82.0, 4.0
@@ -209,30 +216,59 @@ for ent_nom in entrepots_iot:
     sample_dates = np.random.choice(dates_range, size=50, replace=False)
     sample_dates = sorted(sample_dates)
     
-    for dt in sample_dates:
+    for j, dt in enumerate(sample_dates):
         dt = pd.Timestamp(dt)
-        # Effet saisonnier
         jour = dt.dayofyear
         saison = -np.cos(2 * np.pi * (jour - 20) / 365.25) * 2.5
         
-        temp = round(temp_base + saison + np.random.normal(0, temp_noise), 2)
-        hum = round(hum_base + np.random.normal(0, hum_noise), 2)
-        hum = max(0, min(100, hum))
+        # Température de base pour cet instant
+        base_t = temp_base + saison + np.random.normal(0, temp_noise)
+        if random.random() < 0.005:  # Panne globale
+            base_t += np.random.uniform(5, 12)
+            
+        # Humidité de base
+        base_h = hum_base + np.random.normal(0, hum_noise)
+        base_h = max(0, min(100, base_h))
         
-        # Injection rare d'anomalies (pannes)
-        if random.random() < 0.005:
-            temp += round(np.random.uniform(5, 12), 2)
+        # Capteurs
+        t_cap1 = round(base_t + np.random.normal(0, 0.3), 2)
+        t_cap2 = round(base_t + np.random.normal(0, 0.4), 2)
+        t_cap3 = round(base_t + np.random.normal(0, 0.2), 2)
         
-        rows_iot.append({
-            "nom_entrepot": ent_nom,
-            "date": dt.strftime("%Y-%m-%d %H:%M:%S"),
-            "temperature": temp,
-            "humidite": hum,
+        h_cap1 = round(min(100, max(0, base_h + np.random.normal(0, 0.5))), 2)
+        h_cap2 = round(min(100, max(0, base_h + np.random.normal(0, 0.8))), 2)
+        h_cap3 = round(min(100, max(0, base_h + np.random.normal(0, 0.4))), 2)
+        
+        timestamp_str = dt.strftime("%Y-%m-%d %H:%M:%S")
+        
+        id_temp = f"TMP-{id_ent}-{j+1:05d}"
+        id_hum = f"HUM-{id_ent}-{j+1:05d}"
+        
+        rows_temp.append({
+            "id": id_temp,
+            "id_entrepot": id_ent,
+            "datetime": timestamp_str,
+            "capteur1": t_cap1,
+            "capteur2": t_cap2,
+            "capteur3": t_cap3,
+        })
+        
+        rows_humid.append({
+            "id": id_hum,
+            "id_entrepot": id_ent,
+            "id_proprietaire": id_prop,
+            "datetime": timestamp_str,
+            "capteur1": h_cap1,
+            "capteur2": h_cap2,
+            "capteur3": h_cap3,
         })
 
-df_iot = pd.DataFrame(rows_iot)
-df_iot.to_csv(os.path.join(OUTPUT_DIR, "historique_iot_test_1.csv"), index=False, encoding="utf-8-sig")
-print(f"   ✅ {len(df_iot)} lignes générées ({len(entrepots_iot)} entrepôts × 50 relevés).")
+df_temp = pd.DataFrame(rows_temp)
+df_humid = pd.DataFrame(rows_humid)
+
+df_temp.to_csv(os.path.join(OUTPUT_DIR, "temperature_test_1.csv"), index=False, encoding="utf-8-sig")
+df_humid.to_csv(os.path.join(OUTPUT_DIR, "humidite_test_1.csv"), index=False, encoding="utf-8-sig")
+print(f"   ✅ {len(df_temp)} lignes générées avec Nouveaux Identifiants.")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -298,10 +334,11 @@ print("=" * 65)
 print(f"\n  📂 Répertoire de sortie : {OUTPUT_DIR}\n")
 print(f"  📄 demandes_clients_test_1.csv   → {len(df_demandes):>5} lignes")
 print(f"  📄 entrepots_test_1.csv          → {len(df_entrepots):>5} lignes")
-print(f"  📄 historique_iot_test_1.csv      → {len(df_iot):>5} lignes")
+print(f"  📄 temperature_test_1.csv        → {len(df_temp):>5} lignes")
+print(f"  📄 humidite_test_1.csv           → {len(df_humid):>5} lignes")
 print(f"  📄 trajets_clients_test_1.csv    → {len(df_trajets):>5} lignes")
 print(f"  📄 clients_maroc_test_1.csv      → {len(df_clients):>5} lignes")
-print(f"\n  Total : {len(df_demandes) + len(df_entrepots) + len(df_iot) + len(df_trajets) + len(df_clients)} lignes de données")
+print(f"\n  Total : {len(df_demandes) + len(df_entrepots) + len(df_temp) + len(df_humid) + len(df_trajets) + len(df_clients)} lignes de données")
 
 # Distribution géographique
 print("\n  📊 Distribution géographique réaliste :")

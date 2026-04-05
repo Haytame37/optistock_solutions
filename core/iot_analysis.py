@@ -2,57 +2,63 @@ import pandas as pd
 from utils.constants import TEMP_MIN, TEMP_MAX, HUMID_MIN, HUMID_MAX
 
 def load_iot_data(filepath):
-    """Charge le dataset et s'assure que les dates sont au bon format."""
+    """Charge un dataset et s'assure que les dates sont au bon format."""
     df = pd.read_csv(filepath)
-    df['timestamp'] = pd.to_datetime(df['timestamp'])
+    df['datetime'] = pd.to_datetime(df['datetime'])
     return df
 
-def get_basic_stats(df):
-    """Calcule les statistiques descriptives globales pour l'entrepôt."""
+def get_basic_stats(df_temp, df_humid):
+    """Calcule les statistiques en faisant la moyenne des 3 capteurs."""
+    # Calcul de la moyenne des capteurs par ligne
+    df_t_mean = df_temp[['capteur1', 'capteur2', 'capteur3']].mean(axis=1)
+    df_h_mean = df_humid[['capteur1', 'capteur2', 'capteur3']].mean(axis=1)
+    
     return {
-        "temp_mean": round(df['temperature'].mean(), 2),
-        "temp_min": df['temperature'].min(),
-        "temp_max": df['temperature'].max(),
-        "temp_std": round(df['temperature'].std(), 2), # Ajout de l'écart-type
-        "humid_mean": round(df['humidite'].mean(), 2),
-        "humid_min": df['humidite'].min(),
-        "humid_max": df['humidite'].max(),
-        "humid_std": round(df['humidite'].std(), 2)    # Ajout de l'écart-type
+        "temp_mean": round(df_t_mean.mean(), 2),
+        "temp_min": round(df_t_mean.min(), 2),
+        "temp_max": round(df_t_mean.max(), 2),
+        "temp_std": round(df_t_mean.std(), 2),
+        "humid_mean": round(df_h_mean.mean(), 2),
+        "humid_min": round(df_h_mean.min(), 2),
+        "humid_max": round(df_h_mean.max(), 2),
+        "humid_std": round(df_h_mean.std(), 2)
     }
 
-def detect_anomalies(df):
+def detect_anomalies(df_temp, df_humid):
     """
     Isole les lignes où les seuils environnementaux sont franchis.
-    Retourne deux DataFrames : un pour la température, un pour l'humidité.
+    Utilise la moyenne des 3 capteurs pour valider le dépassement.
     """
-    # Masques booléens pour les dépassements de température
-    mask_temp = (df['temperature'] < TEMP_MIN) | (df['temperature'] > TEMP_MAX)
-    anomalies_temp = df[mask_temp]
+    t_avg = df_temp[['capteur1', 'capteur2', 'capteur3']].mean(axis=1)
+    mask_temp = (t_avg < TEMP_MIN) | (t_avg > TEMP_MAX)
+    anomalies_temp = df_temp[mask_temp]
     
-    # Masques booléens pour les dépassements d'humidité
-    mask_humid = (df['humidite'] < HUMID_MIN) | (df['humidite'] > HUMID_MAX)
-    anomalies_humid = df[mask_humid]
+    h_avg = df_humid[['capteur1', 'capteur2', 'capteur3']].mean(axis=1)
+    mask_humid = (h_avg < HUMID_MIN) | (h_avg > HUMID_MAX)
+    anomalies_humid = df_humid[mask_humid]
     
     return anomalies_temp, anomalies_humid
 
-#TEST TEST tEST TEST #
 # --- BLOC DE TEST (Le point d'entrée) ---
 if __name__ == "__main__":
     from core.scoring import calculate_environmental_score, get_score_label
-    from utils.constants import DATA_PATH
+    from utils.constants import TEMP_DATA_PATH, HUMID_DATA_PATH
     
     # 1. Pipeline
-    df_test = load_iot_data(DATA_PATH)
-    stats = get_basic_stats(df_test)
-    bad_temp, bad_humid = detect_anomalies(df_test)
+    df_t = load_iot_data(TEMP_DATA_PATH)
+    df_h = load_iot_data(HUMID_DATA_PATH)
+    stats = get_basic_stats(df_t, df_h)
+    bad_temp, bad_humid = detect_anomalies(df_t, df_h)
     
     # 2. Score
-    score = calculate_environmental_score(len(df_test), len(bad_temp), len(bad_humid))
+    # On suppose que le nombre total d'heures est le max des deux
+    total_len = max(len(df_t), len(df_h))
+    score = calculate_environmental_score(total_len, len(bad_temp), len(bad_humid))
     label, emoji = get_score_label(score)
     
     # 3. Affichage
     print("\n" + "="*30)
-    print(f"📊 RAPPORT OPTISTOCK - 2026")
+    print(f"📊 RAPPORT OPTISTOCK (Multi-Capteurs)")
     print("="*30)
     print(f"🌡️ Température Moyenne : {stats['temp_mean']}°C")
     print(f"💧 Humidité Moyenne    : {stats['humid_mean']}%")
