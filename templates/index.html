@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Moteur de Recherche d'Entrepôts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        select,
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            width: 120px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .status-bar {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+
+        .card {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .card-info {
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+
+        .card-id {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #34495e;
+        }
+
+        .card-details {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🔍 Trouver un entrepôt</h1>
+
+        <div class="search-box">
+            <select id="type_recherche">
+                <option value="STANDARD">Entrepôt STANDARD</option>
+                <option value="FROID">Entrepôt FROID</option>
+                <option value="SEC">Entrepôt SEC</option>
+                <option value="CLIMATISE">Entrepôt CLIMATISÉ</option>
+            </select>
+            <button onclick="lancerRecherche()">Rechercher</button>
+        </div>
+
+        <div id="status_bar" class="status-bar">En attente de recherche...</div>
+        <div id="resultats"></div>
+    </div>
+
+    <script>
+        async function lancerRecherche() {
+            const typeChoisi = document.getElementById('type_recherche').value;
+            const divResultats = document.getElementById('resultats');
+            const divStatut = document.getElementById('status_bar');
+
+            divStatut.innerText = "Analyse des données en cours... (Cela peut prendre quelques secondes)";
+            divResultats.innerHTML = "";
+
+            try {
+                const response = await fetch('/api/recherche', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type_recherche: typeChoisi })
+                });
+
+                const data = await response.json();
+
+                divStatut.innerText = `${data.entrepots.length} entrepôt(s) trouvé(s) pour le type '${data.type_cherche}'.`;
+
+                if (data.entrepots.length === 0) {
+                    divResultats.innerHTML = "<p style='text-align:center; color:red;'>Aucun entrepôt ne correspond à vos critères de recherche.</p>";
+                    return;
+                }
+
+                for (let entrepot of data.entrepots) {
+                    const carte = document.createElement('div');
+                    carte.className = 'card';
+
+                    carte.innerHTML = `
+                    <div class="card-score">${entrepot.score}</div>
+                    <div class="card-info">
+                        <div class="card-id">${entrepot.id_entrepot} <span class="badge" style="background-color: ${entrepot.couleur}">${entrepot.label}</span></div>
+                        <div class="card-details">
+                            🌡️ Temp: ${entrepot.temp_moyenne}°C | 💧 Hum: ${entrepot.hum_moyenne}%<br>
+                            ⚠️ Incidents: ${entrepot.nb_incidents} | 📡 Fiabilité capteurs: -${entrepot.penalite_cohérence} pts
+                        </div>
+                    </div>
+                `;
+
+                    divResultats.appendChild(carte);
+                }
+            } catch (error) {
+                divStatut.innerText = "Interface chargée, mais l'API /api/recherche n'est pas encore connectée.";
+                divResultats.innerHTML = "<p style='text-align:center; color:#c0392b;'>Le design est intégré, mais aucun backend n'est encore branché pour cette recherche.</p>";
+            }
+        }
+    </script>
+</body>
+
+</html>
