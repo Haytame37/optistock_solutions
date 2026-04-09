@@ -1,6 +1,6 @@
-# 🏭 OptiStock Solutions
+# 🏭 OptiStock Solutions (Phases 3 & 4)
 
-> Système IoT-Cloud d'aide à la décision pour la gestion optimale des centres de stockage logistique.
+> **Système IA et IoT d'Aide à la Décision (SAD) pour la Logistique d'Entrepôts.**
 
 Projet réalisé dans le cadre du module **Apprentissage Par Projet**  
 Filière : **Transformation Digitale Industrielle (TDI)**  
@@ -13,200 +13,137 @@ Encadré par : **Pr. Hamza Touil**
 
 | Nom               | Rôle                        |
 | ----------------- | --------------------------- |
-| Rafiki Najat      | Module 1&2 |
-| Atmane Salah      | Module 1&2          |
-| ElAtraoui Haytame | Module 1&2    |
+| **Rafiki Najat**      |  |
+| **Atmane Salah**      |  |
+| **ElAtraoui Haytame** |  |
 
 ---
 
 ## 📌 Description du Projet
 
-OptiStock Solutions est une application web interactive qui aide les entreprises à :
+OptiStock Solutions est une plateforme avancée destinée aux acteurs de la chaîne de distribution logistique (Supply Chain) et aux propriétaires de foncier industriel. 
+Le but du système est d'évaluer de façon **rigoureuse et mathématique** la viabilité d'un site logistique pour des marchandises sous normes (Normes HACCP, Chaîne du Froid).
 
-- **Trouver l'entrepôt idéal** en fonction de leurs points de livraison (Macro-localisation)
-- **Valider les conditions environnementales** d'un entrepôt via l'historique des capteurs IoT (température, humidité)
-- **Scorer et comparer** les entrepôts disponibles grâce à un système de pondération personnalisable
-
-L'application met en relation deux types d'utilisateurs :
-
-- 🔍 **Clients Chercheurs** : entreprises à la recherche d'un entrepôt adapté
-- 🏢 **Clients Propriétaires** : gestionnaires d'entrepôts souhaitant les proposer sur la plateforme
+L’application propose une approche holistique (Macro et Micro) assistée par ordinateur afin de :
+1. **Géolocaliser** l'entrepôt le plus pertinent vis-à-vis d'un centre de gravité client.
+2. **Auditer thermiquement** le stockage via un traitement du signal IoT complexe (multi-capteurs).
+3. **Scorer & Classer** les entrepôts à travers une fonction d'utilité (Méthode SAW).
+4. **Verrouiller de façon concurrente** (Pessimistic Lock) la transaction financière.
 
 ---
 
-## ⚙️ Fonctionnalités principales
+## ⚙️ Implémentations et Modèles Mathématiques
 
-### Axe 1 — Macro-Localisation (Optimisation géographique)
+L'application suit une architecture scientifique en 3 couches de décision :
 
-- Calcul du **point optimal théorique** via l'algorithme du Centre de Gravité
-- **Recommandation d'entrepôts existants** classés par score logistique pondéré
-- Affichage sur **carte interactive** (Folium)
+### 1. Axe Logistique & Géospatial (Macro-localisation)
+- Application de la **théorie de Weber / Centre de Gravité** pour localiser théoriquement une implantation idéale.
+- Calcul matriciel des **Distances de Haversine** pour tous les points de livraison.
 
-### Axe 2 — Micro-Gestion (Validation environnementale)
+### 2. Axiome Environnemental IoT & Traitement du Signal (Micro-Gestion)
+- **Interpolation Linéaire** : reconstruction des données (`NaN`) suite aux pannes matérielles.
+- **Filtre de Lissage (Moyenne Mobile)** : atténuation du bruit électronique ou des variations brusques sur une fenêtre de 3 heures.
+- **Redondance Multi-capteurs** : Agrégation de la moyenne de 3 capteurs pour obtenir un consensus "fiable".
+- **Segmentation Saisonnière** : L'algorithme classifie la conformité (✅ Conforme, ⚠️ Vigilance, 🔴 Hors-norme) mois par mois en l'adaptant aux normes thermodynamiques des saisons.
 
-- **Analyse des données IoT** (température, humidité) sur les 6 derniers mois
-- **Détection automatique d'anomalies** et périodes de non-conformité
-- **Score environnemental** basé sur le taux de conformité aux exigences client
+### 3. Le Moteur de Scoring SAW (Simple Additive Weighting)
+Afin de ne pas mélanger des bananes et des kilomètres, le système applique un filtre de conversion :
+1. **Normalisation ciblée :** La distance est injectée via son inverse ($1 / d$), ainsi une proximité géographique forte garantit un score élevé (entre $0.0$ et $1.0$).
+2. **Pondération 60 / 40 :**
+   $$Score = (0.60 \times Logistique) + (0.40 \times Environnement)$$
+   La logistique pèse 60% car un site mal placé détruit le bilan carbone, tandis qu'un environnement sous-noté (40%) est contournable par des investissements (climatisation, aménagement).
+3. **Moteur IA :** Le résultat final n'est pas un nombre muet. Le système génère automatiquement un diagnostic textuel et lève des **alertes environnementales saisonnières**.
 
-### Système de Scoring
-
-- Formule : **S = Σ(Ci × Wi)** — somme pondérée des critères
-- Curseurs interactifs pour que l'utilisateur ajuste les poids selon ses priorités
-- Score final sur 100 combinant logistique + environnemental
+### 4. Transactions et Sécurité : System_Pre_Lock
+Afin d'éviter tout conflit de réservation, une fois le contrat en cours de montage sur l'application, OptiStock exécute un `System_Pre_Lock`.
+- Placement temporaire de l'entrepôt à un statut **LOCK**.
+- **Timelock de 15 minutes** (Verrouillage pessimiste en mémoire). 
+- **Lazy Cleanup** : Expiration en arrière-plan sans perturber le main thread du serveur.
 
 ---
 
 ## 🛠️ Stack Technique
 
-| Composant             | Technologie     | Rôle                                |
+| Composant             | Technologie     | Modélisation / Rôle                 |
 | --------------------- | --------------- | ----------------------------------- |
-| Interface (Dashboard) | Streamlit       | Front-end interactif                |
-| Moteur de calcul      | Python + Pandas | Logique métier & algorithmes        |
-| Base de données       | SQLite          | Stockage entrepôts & historique IoT |
-| Cartographie          | Folium          | Cartes interactives                 |
-| Graphiques            | Plotly          | Visualisation capteurs & scores     |
-| Hashage mots de passe | bcrypt          | Sécurité authentification           |
+| Interface / Frond-End | **Streamlit**       | Application Web réactive Mono-Page  |
+| Data Science Core     | **Python / Pandas** / Numpy | Algorithmes, Interpolation, SAW |
+| Graphiques Dynamiques | **Plotly**          | Cadrage zones d'alertes HACCP       |
+| Cartographie          | **Folium**          | Isométries & Clusters (Weiszfeld)   |
+| Base de données       | **SQLite**          | Stockage relationnel et dictionnaire|
 
 ---
 
-## 📁 Structure du Projet
+## 📁 Structure Synthétique (Refactoring V4)
 
 ```
 optistock_solutions/
-├── app.py                          # Point d'entrée principal
-├── requirements.txt                # Dépendances Python
-├── .env                            # Variables d'environnement
-├── README.md                       # Ce fichier
+├── app.py                          # Point d'entrée & Routeur Streamlit
+├── TECHNICAL_DOC.md                # Justifications algorithmiques (Pr. Touil)
+├── README.md                       # Présentation globale
 │
-├── database/
-│   ├── optistock.db                # Base SQLite (auto-générée)
-│   ├── init_db.py                  # Création des tables
-│   └── seed_data.py                # Données de démonstration
+├── core/                           # Intelligence du système (SAD)
+│   ├── logistique.py               # Gravité géospatiale & Haversine
+│   ├── iot_analysis.py             # Traitement signal, multi-capteurs, anomalies
+│   └── scoring.py                  # SAW, Min-Max (1/d), IA Textuelle
 │
-├── data/
-│   ├── entrepots_catalogue.csv     # Catalogue initial entrepôts
-│   └── samples/
-│       └── capteurs_exemple.csv    # Modèle CSV IoT importable
+├── models/                         # Structures de données applicatives
+│   └── reservation.py              # Logique d'état System_Pre_Lock
 │
-├── core/                           # Moteur de décision (Back-end)
-│   ├── logistique.py               # Centre de Gravité + distances
-│   ├── iot_analysis.py             # Analyse capteurs + anomalies
-│   ├── scoring.py                  # Calcul S = Σ(Ci × Wi)
-│   └── auth.py                     # Authentification & rôles
+├── utils/                          # Composants transverses
+│   ├── constants.py                # Variables de pondérations mondiales
+│   └── db.py                       # Accesseurs SQLite
 │
-├── models/                         # Accès base de données
-│   ├── entrepot.py
-│   ├── utilisateur.py
-│   ├── capteur.py
-│   └── reservation.py
-│
-├── pages/                          # Pages Streamlit
-│   ├── 1_Login.py
-│   ├── 2_Dashboard_Admin.py
-│   ├── 3_Interface_Chercheur.py
-│   └── 4_Interface_Proprietaire.py
-│
-├── components/                     # Composants UI réutilisables
-│   ├── carte.py
-│   ├── graphiques.py
-│   ├── kpi_cards.py
-│   └── sidebar.py
-│
-├── utils/
-│   ├── validation.py
-│   ├── notifications.py
-│   └── helpers.py
-│
-└── tests/
-    ├── test_logistique.py
-    ├── test_scoring.py
-    └── test_iot_analysis.py
+└── data/                           # Datalake IoT brut et propre
+    ├── cleaned/                    # Export DataFrame finalisés
+    └── samples/                    # CSV Démo
 ```
 
 ---
 
-## 🚀 Installation & Lancement
+## 🚀 Installation & Déploiement
 
-### 1. Cloner le projet
-
+### 1. Clonage
 ```bash
-git clone https://github.com/votre-repo/optistock-solutions.git
-cd optistock-solutions
+git clone https://github.com/Haytame37/optistock_solutions.git
+cd optistock_solutions
 ```
 
-### 2. Créer un environnement virtuel
-
+### 2. Environnement Virtuel
 ```bash
 python -m venv venv
-source venv/bin/activate        # Linux / macOS
-venv\Scripts\activate           # Windows
+# Windows :
+venv\Scripts\activate
 ```
 
-### 3. Installer les dépendances
-
+### 3. Dépendances
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configurer les variables d'environnement
-
-```bash
-cp .env.example .env
-# Éditer .env avec vos paramètres si nécessaire
-```
-
-### 5. Lancer l'application
-
+### 4. Lancer l'application
+Le projet repose désormais sur un dashboard principal gérant de bout en bout l'expérience (Routeur interne).
 ```bash
 streamlit run app.py
 ```
-
-L'application s'ouvre automatiquement sur `http://localhost:8501`
-
----
+> Le serveur local Streamlit se lancera généralement sur `http://localhost:8501`.
 
 ---
 
-## 📊 Format CSV capteurs IoT
+## 📊 Format des Datasets IoT
 
-Les propriétaires doivent importer un fichier CSV respectant ce format :
+Pour assurer le bon fonctionnement du **consensus Multi-Capteurs**, les historiques CSV doivent contenir la variable temporelle et au minimum les flux de 3 capteurs distincts (tolérance aux NaN).
 
+**Exemple de structure recommandée (`temperature_ENT001.csv`) :**
 ```csv
-date,temperature,humidite
-2024-01-01 08:00:00,18.5,55.2
-2024-01-01 09:00:00,19.1,54.8
-2024-01-01 10:00:00,20.3,56.1
-```
-
-> Un fichier exemple est disponible dans `data/samples/capteurs_exemple.csv`
-
----
-
-## 🧮 Formule de Scoring
-
-```
-Score Global = (Score_Logistique × W_log) + (Score_Environnemental × W_env)
-
-Score_Logistique     = f(distance, capacité, type_stockage)
-Score_Environnemental = f(taux_conformité_température, taux_conformité_humidité)
-
-W_log + W_env = 1.0   (ajustables via les curseurs de l'interface)
-```
-
----
-
-## 🗺️ Flux de navigation
-
-```
-[Login]
-   ├── Admin       → Dashboard Admin (gestion utilisateurs & statistiques)
-   ├── Chercheur   → Saisie besoins → Analyse → Carte + Scores → Réservation
-   └── Propriétaire → Formulaire entrepôt → Import CSV IoT → Mise en ligne
+datetime,capteur1,capteur2,capteur3
+2024-01-01 08:00:00,18.5,18.6,18.4
+2024-01-01 09:00:00,19.1,NaN,19.0
 ```
 
 ---
 
 ## 📝 Licence
 
-Projet académique — ENSA Béni Mellal © 2025/2026  
-Tous droits réservés au Groupe OptiStockSolutions.
+Projet académique PFA — ENSA Béni Mellal © 2025/2026.  
+Tous droits réservés. Destiné à des fins de jury académique et d'audit.
