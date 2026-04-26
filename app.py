@@ -82,22 +82,32 @@ def render_search_page() -> None:
 
     col1, col2 = st.columns([1, 3])
     with col1:
-        type_recherche = st.selectbox(
-            "Besoin de stockage",
-            ["STANDARD", "FROID", "SEC", "CLIMATISE"],
+        # type_recherche = st.selectbox(
+        #     "Besoin de stockage",
+        #     ["STANDARD", "FROID", "SEC", "CLIMATISE"],
+        #     index=0,
+        # )
+        
+        # Nouveau sélecteur basé sur les produits
+        from utils.product_conditions import PRODUCT_CONDITIONS
+        produit_recherche = st.selectbox(
+            "Produit à stocker",
+            list(PRODUCT_CONDITIONS.keys()),
             index=0,
         )
+        
         if st.button("Rechercher 🔍", type="primary", use_container_width=True):
             st.session_state["do_search"] = True
 
     if st.session_state.get("do_search", False):
-        results = search_entrepots(type_recherche)
+        from core.product_search import search_entrepots_by_product
+        results = search_entrepots_by_product(produit_recherche)
 
         if not results:
             st.warning("Aucun entrepôt trouvé avec les critères actuels.")
             return
 
-        st.markdown(f"### {len(results)} entrepôt(s) analysé(s) pour `{type_recherche}`")
+        st.markdown(f"### {len(results)} entrepôt(s) analysé(s) pour le produit `{produit_recherche}`")
 
         for entrepot in results:
             reject_line = ""

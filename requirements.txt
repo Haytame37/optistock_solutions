@@ -4,6 +4,7 @@ streamlit
 # Manipulation de données et calculs
 pandas
 numpy
+scikit-learn
 
 # Cartographie et géolocalisation
 folium

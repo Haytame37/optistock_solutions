@@ -130,39 +130,32 @@ def lisser_signal(serie: pd.Series,
     return serie.rolling(window=fenetre, min_periods=1).mean()
 
 
+from core.data_cleaning import clean_iot_data_pipeline
+
 def pretraiter_serie_capteurs(df_capteurs: pd.DataFrame,
                                colonnes: list = None) -> pd.DataFrame:
     """
     Pipeline complet de traitement du signal pour un DataFrame multi-capteurs :
-        1. Interpolation linéaire des NaN par capteur
-        2. Filtre de moyenne mobile par capteur
+        1. Nettoyage avancé : Valeurs fausses (Médiane) + Valeurs manquantes (MissForest)
+        2. Filtre de moyenne mobile par capteur pour lisser le bruit résiduel
         3. Calcul de la moyenne agrégée (consensus multi-capteurs)
-
-    Paramètres
-    ----------
-    df_capteurs : pd.DataFrame
-        Colonnes attendues : ['capteur1', 'capteur2', 'capteur3'] (ou sous-ensemble)
-    colonnes : list | None
-        Liste des colonnes capteurs à utiliser (auto-détectées si None)
-
-    Retourne
-    --------
-    pd.DataFrame avec colonnes originales traitées + 'valeur_moyenne' ajoutée
     """
     df = df_capteurs.copy()
 
     if colonnes is None:
-        # Auto-détecter les colonnes capteurs (colonnes numériques hors 'datetime', 'id_entrepot')
         colonnes = [c for c in df.columns
-                    if c not in ("datetime", "id_entrepot") and pd.api.types.is_numeric_dtype(df[c])]
+                    if c not in ("datetime", "id_entrepot", "warehouse_id", "recorded_at") and pd.api.types.is_numeric_dtype(df[c])]
 
+    if not colonnes:
+        return df
+        
+    # Étape 1 : Nettoyage avancé (MissForest + Median)
+    df = clean_iot_data_pipeline(df, sensor_columns=colonnes)
+
+    # Étape 2 & 3 : Lisser le bruit résiduel et calculer la moyenne
     for col in colonnes:
-        # Étape 1 : interpoler les NaN
-        df[col] = interpoler_valeurs_manquantes(df[col])
-        # Étape 2 : lisser le bruit
         df[col] = lisser_signal(df[col])
 
-    # Agrégation multi-capteurs : moyenne simple des capteurs disponibles
     df["valeur_moyenne"] = df[colonnes].mean(axis=1)
 
     return df
