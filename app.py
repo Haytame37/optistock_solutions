@@ -14,6 +14,22 @@ st.set_page_config(
 from utils.ui import hide_sidebar
 hide_sidebar()
 
+# --- Auto-initialisation de la base de données au démarrage ---
+import sqlite3
+_DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "database", "optistock.db"))
+try:
+    _conn = sqlite3.connect(_DB_PATH)
+    _cur = _conn.cursor()
+    _cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
+    if _cur.fetchone() is None:
+        _conn.close()
+        from database.init_db import create_database
+        create_database()
+    else:
+        _conn.close()
+except Exception as _e:
+    st.error(f"Erreur d'initialisation de la base de données : {_e}")
+
 # Injection du CSS personnalisé pour correspondre au design HTML
 st.markdown("""
     <style>
